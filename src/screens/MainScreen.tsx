@@ -5,24 +5,24 @@ import {registerScreens} from '../screens';
 
 registerScreens();
 
-const renderButton = (props: any, label: string, componentName: string, title: string) => {
+const renderButton = (props: any, label: string) => {
   return (
     <Button
       marginT-10
       marginH-90
       borderRadius={BorderRadiuses.br30}
       backgroundColor={Colors.green30}
-      label={label}
+      label={`${label} Screen`}
       labelStyle={{color: Colors.white}}
       text60
       onPress={() =>
         Navigation.push(props.componentId, {
           component: {
-            name: componentName,
+            name: `${label}Screen`,
             options: {
               topBar: {
                 title: {
-                  text: title,
+                  text: label,
                   color: Colors.white,
                 },
                 backButton: {
@@ -47,8 +47,10 @@ const MainScreen = (props) => {
         Main Screen
       </Text>
       <View center marginT-100></View>
-      {renderButton(props, 'Login Screen', 'LoginScreen', 'Log in')}
-      {renderButton(props, 'Blog Screen', 'BlogScreen', 'Blog')}
+      {renderButton(props, 'Login')}
+      {renderButton(props, 'Blog')}
+      {renderButton(props, 'Gallery')}
+      {renderButton(props, 'Store')}
     </View>
   );
 };
