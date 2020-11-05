@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "Post 2",
+      "text": "It is one of the blessings of old friends that you can afford to be stupid with them.",
+      "author": "Post 2 text",
+      "img": "http://picsum.photos/200/200/?image=2"
+    },
+    {
+      "title": "Sdfsdf",
+      "text": "Sdfsdf",
+      "img": "https://picsum.photos/200/200/?image=312",
+      "id": 4
+    },
+    {
+      "title": "Ewrwer",
+      "text": "Ewrwer",
+      "img": "https://picsum.photos/200/200/?image=72",
+      "id": 5
+    }
+  ]
+}

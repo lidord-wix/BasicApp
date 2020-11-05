@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 import {View, Text, Colors, TextField, TextArea} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
+import * as postsActions from '../../blog/posts.actions';
 
 class AddPost extends Component {
   static propTypes = {
@@ -13,8 +14,14 @@ class AddPost extends Component {
     super(props);
     Navigation.events().bindComponent(this);
 
+    this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.onSavePressed = this.onSavePressed.bind(this);
+
+    this.state = {
+      title: '',
+      text: '',
+    };
   }
 
   static get options() {
@@ -54,37 +61,49 @@ class AddPost extends Component {
     }
   }
 
-  onChangeText(text) {
+  onChangeTitle = (title) => {
+    this.setState({title});
     Navigation.mergeOptions(this.props.componentId, {
       topBar: {
         rightButtons: [
           {
             id: 'saveBtn',
             text: 'Save',
-            enabled: !!text,
+            enabled: !!title,
             color: Colors.white,
-            fontWeight: 'bold',
           },
         ],
       },
     });
-  }
+  };
 
-  onSavePressed() {
+  onChangeText = (text) => {
+    this.setState({text});
+  };
+
+  onSavePressed = () => {
     Navigation.dismissModal(this.props.componentId);
-    //In here, we will send a request for saving the post.
-    setTimeout(() => {
-      alert('post was saved');
-    }, 1000);
-  }
+    const randomImageNumber = Math.floor(Math.random() * 500 + 1);
+    postsActions.addPost({
+      title: this.state.title,
+      text: this.state.text,
+      img: `https://picsum.photos/200/200/?image=${randomImageNumber}`,
+    });
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>AddPost Screen</Text>
+        <TextField
+          placeholder="Add title to your post"
+          value={this.state.title}
+          onChangeText={this.onChangeTitle}
+          underlineColor={Colors.green50}
+        />
         <View style={styles.textArea}>
           <TextArea
-            placeholder="Start writing to enable the save btn"
+            placeholder="Write your post here"
             onChangeText={this.onChangeText}
           />
         </View>
@@ -108,7 +127,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: Colors.grey30,
     width: '90%',
-    height: '80%',
+    height: '40%',
     paddingHorizontal: 10,
   },
 });

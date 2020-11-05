@@ -3,11 +3,12 @@ import {StyleSheet} from 'react-native';
 import {View, Text, Colors} from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
+import {deletePost} from '../../blog/posts.actions';
 
 class ViewPost extends Component {
   static propTypes = {
     componentId: PropTypes.string,
-    somePropToPass: PropTypes.string,
+    post: PropTypes.object,
   };
 
   constructor(props) {
@@ -15,19 +16,20 @@ class ViewPost extends Component {
     this.onPostDeletePressed = this.onPostDeletePressed.bind(this);
   }
 
-  onPostDeletePressed() {
+  onPostDeletePressed = async () => {
     Navigation.pop(this.props.componentId);
-    setTimeout(() => {
-      alert('Post deleted');
-    }, 1000);
-  }
+    await deletePost(this.props.post.id);
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>ViewPost Screen</Text>
-        <Text>{this.props.somePropToPass}</Text>
-        <Text marginT-20 onPress={this.onPostDeletePressed} color={Colors.red30}>
+        <Text>{JSON.stringify(this.props.post)}</Text>
+        <Text
+          marginT-20
+          onPress={this.onPostDeletePressed}
+          color={Colors.red30}>
           Delete Post
         </Text>
       </View>

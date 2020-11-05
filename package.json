@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "fake-server": "json-server --watch db.json"
   },
   "dependencies": {
     "@react-native-community/blur": "^3.6.0",
@@ -19,7 +20,8 @@
     "react-native-gesture-handler": "^1.8.0",
     "react-native-navigation": "^7.2.0",
     "react-native-reanimated": "^1.13.1",
-    "react-native-ui-lib": "^5.15.0"
+    "react-native-ui-lib": "^5.15.0",
+    "remx": "^3.0.21"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
