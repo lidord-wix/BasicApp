@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
-import {StyleSheet, FlatList} from 'react-native';
-import {View, Text, Colors, ListItem} from 'react-native-ui-lib';
+import _ from 'lodash';
+import {StyleSheet, FlatList, ScrollView} from 'react-native';
+import {Text, Colors, ListItem, Image, BorderRadiuses} from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
 import {connect} from 'remx';
@@ -48,15 +49,18 @@ class BlogScreen extends PureComponent {
     Navigation.push(this.props.componentId, {
       component: {
         name: 'blog.ViewPost',
-        passProps: {
-          post,
-        },
         options: {
           topBar: {
-            title: {
-              text: 'Post1',
+            backButton: {
+              color: Colors.green30,
+            },
+            background: {
+              color: Colors.white,
             },
           },
+        },
+        passProps: {
+          post,
         },
       },
     });
@@ -77,25 +81,44 @@ class BlogScreen extends PureComponent {
   }
 
   renderItem = ({item}) => (
-    <ListItem onPress={() => this.pushViewPostScreen(item)}>
-      <Text>{item.title}</Text>
+    <ListItem
+      activeBackgroundColor={Colors.green20}
+      activeOpacity={0.1}
+      height={100}
+      onPress={() => this.pushViewPostScreen(item)}
+    >
+      <ListItem.Part left>
+        <Image
+          source={{uri: item.img}}
+          style={styles.image}
+        />
+      </ListItem.Part>
+      <ListItem.Part middle column containerStyle={styles.border}>
+        <ListItem.Part containerStyle={{marginBottom: 2}}>
+          <Text dark10 text70 numberOfLines={1}>{item.title}</Text>
+        </ListItem.Part>
+        <ListItem.Part>
+          <Text text80 dark40 numberOfLines={2}>{item.text}</Text>
+        </ListItem.Part>
+      </ListItem.Part>
     </ListItem>
   );
 
   postKeyExtractor = (item) => `${item.id}-key`;
 
   render() {
+    const {posts} = this.props;
     return (
-      <View>
-        <Text style={{marginTop: 360, marginLeft: 130, fontSize: 30}}>
-          Blog Screen
+      <ScrollView>
+        <Text center marginV-40 text30 dark10>
+          Posts list:
         </Text>
         <FlatList
-          data={this.props.posts}
+          data={posts}
           keyExtractor={this.postKeyExtractor}
           renderItem={this.renderItem}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -109,9 +132,18 @@ function mapStateToProps() {
 export default connect(mapStateToProps)(BlogScreen);
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 28,
-    textAlign: 'center',
-    margin: 10,
+  image: {
+    width: 74,
+    height: 74,
+    borderRadius: BorderRadiuses.br20,
+    marginHorizontal: 14,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: Colors.dark70
   },
+  border: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: Colors.dark60,
+    paddingRight: 16
+  }
+
 });

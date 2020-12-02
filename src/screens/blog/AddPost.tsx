@@ -94,7 +94,7 @@ class AddPost extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>AddPost Screen</Text>
+        <Text marginB-80 style={styles.text}>Add Your New Post</Text>
         <TextField
           placeholder="Add title to your post"
           value={this.state.title}

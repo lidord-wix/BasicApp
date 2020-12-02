@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Navigation} from 'react-native-navigation';
+import {ScrollView} from 'react-native';
 import {View, Text, Button, BorderRadiuses, Colors} from 'react-native-ui-lib';
 import {registerScreens} from '../screens';
 
@@ -8,8 +9,8 @@ registerScreens();
 const renderButton = (props: any, label: string) => {
   return (
     <Button
-      marginT-10
-      marginH-90
+      marginT-12
+      marginH-100
       borderRadius={BorderRadiuses.br30}
       backgroundColor={Colors.green30}
       label={`${label} Screen`}
@@ -42,16 +43,17 @@ const renderButton = (props: any, label: string) => {
 
 const MainScreen = (props) => {
   return (
-    <View marginH-20 marginT-100>
-      <Text center text30 dark10>
+    <ScrollView>
+      <Text center text30 dark10 marginT-50>
         Main Screen
       </Text>
-      <View center marginT-100></View>
+      <View centerV marginT-160>
       {renderButton(props, 'Login')}
       {renderButton(props, 'Blog')}
       {renderButton(props, 'Gallery')}
       {renderButton(props, 'Store')}
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
