@@ -13,16 +13,10 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'MainScreen',
+              name: 'LoginScreen',
               options: {
                 topBar: {
-                  title: {
-                    text: 'Basic App',
-                    color: Colors.white
-                  },
-                  background: {
-                      color: Colors.green30
-                  }
+                  visible: false,
                 }
               }
             }
