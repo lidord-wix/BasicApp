@@ -12,7 +12,7 @@ import {
 } from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
-import {deletePost} from '../../blog/posts.actions';
+import {deletePost} from './posts.actions';
 
 class ViewPost extends Component {
   static propTypes = {

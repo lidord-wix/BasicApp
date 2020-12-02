@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {View, Text, Colors, TextField, TextArea} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
-import * as postsActions from '../../blog/posts.actions';
+import * as postsActions from './posts.actions';
 
 class AddPost extends Component {
   static propTypes = {

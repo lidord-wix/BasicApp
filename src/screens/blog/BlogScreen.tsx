@@ -5,8 +5,8 @@ import {Text, Colors, ListItem, Image, BorderRadiuses} from 'react-native-ui-lib
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
 import {connect} from 'remx';
-import {postsStore} from '../../blog/posts.store';
-import * as postsActions from '../../blog/posts.actions';
+import {postsStore} from './posts.store';
+import * as postsActions from './posts.actions';
 
 class BlogScreen extends PureComponent {
   static propTypes = {

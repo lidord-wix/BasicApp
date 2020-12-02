@@ -30,5 +30,22 @@
       "img": "https://picsum.photos/200/200/?image=195",
       "id": 12
     }
+  ],
+  "users": [
+    {
+      "email": "Dfg",
+      "password": "ff",
+      "id": 1
+    },
+    {
+      "email": "Df",
+      "password": "df",
+      "id": 2
+    },
+    {
+      "email": "Lidor",
+      "password": "11",
+      "id": 3
+    }
   ]
 }
