@@ -3,6 +3,7 @@ import {Navigation} from 'react-native-navigation';
 import {ScrollView} from 'react-native';
 import {View, Text, Button, BorderRadiuses, Colors} from 'react-native-ui-lib';
 import {registerScreens} from '../screens';
+import {push} from 'rnn-copilot';
 
 registerScreens();
 
@@ -27,6 +28,7 @@ const renderButton = (props: any, label: string) => {
                   color: Colors.white,
                 },
                 backButton: {
+                  title: 'Main Screen',
                   color: 'white',
                 },
                 background: {
