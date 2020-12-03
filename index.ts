@@ -12,8 +12,6 @@ App.withTopBar({noBorder: true, title: {color: Colors.white}, rightButtonColor: 
   componentBackgroundColor: Colors.grey80,
 });
 
-// Root.clear().withSingleStack('LoginScreen').set();
-
 Navigation.events().registerAppLaunchedListener(() => {
   App.set();
   Root.clear().withSingleStack('LoginScreen').set();

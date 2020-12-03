@@ -1,7 +1,7 @@
 import {Assets} from 'react-native-ui-lib';
 
-const assets = {
+const icons = {
   back: require('./back.png'),
 };
 
-Assets.loadAssetsGroup('icons', assets);
+Assets.loadAssetsGroup('icons', icons);

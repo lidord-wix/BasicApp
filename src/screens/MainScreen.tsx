@@ -1,13 +1,13 @@
-import React, {PureComponent} from 'react';
-import {Navigation} from 'react-native-navigation';
+import React from 'react';
 import {ScrollView} from 'react-native';
 import {View, Text, Button, BorderRadiuses, Colors} from 'react-native-ui-lib';
 import {registerScreens} from '../screens';
-import {push} from 'rnn-copilot';
+import {push, TopBar} from 'rnn-copilot';
 
 registerScreens();
 
 const renderButton = (props: any, label: string) => {
+  const topBar = new TopBar().withTitle(label).withOptions({backButton: {title: 'Main Screen'}});
   return (
     <Button
       marginT-12
@@ -17,23 +17,7 @@ const renderButton = (props: any, label: string) => {
       label={`${label}`}
       labelStyle={{color: Colors.white}}
       text60
-      onPress={() =>
-        Navigation.push(props.componentId, {
-          component: {
-            name: `${label}Screen`,
-            options: {
-              topBar: {
-                title: {
-                  text: label,
-                },
-                backButton: {
-                  title: 'Main Screen',
-                },
-              },
-            },
-          },
-        })
-      }
+      onPress={() => push(`${label}Screen`, props.componentId).withTopBar(topBar).go()}
     />
   );
 };

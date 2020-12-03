@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {StyleSheet, Alert} from 'react-native';
 import {View, Text, TextField, Colors, Button} from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
+import {TopBar} from 'rnn-copilot';
 import PropTypes from 'prop-types';
 import {usersStore} from './users.store';
 import * as usersActions from './users.actions';
@@ -67,9 +68,11 @@ class LoginScreen extends PureComponent {
   };
 
   render() {
+    // this.topBar.withVisibility(false).update();
+
     return (
       <View centerH bg-green30 flex>
-        <Text white text40L marginT-64>
+        <Text white text40L marginT-0>
           BasicApp
         </Text>
         <Text white text20BL marginT-100>

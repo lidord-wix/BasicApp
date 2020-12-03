@@ -4,6 +4,7 @@ import {View, Text, Colors, TextField, TextArea} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from './posts.actions';
+import {TopBar} from 'rnn-copilot';
 
 class AddPost extends Component {
   static propTypes = {
@@ -14,38 +15,17 @@ class AddPost extends Component {
     super(props);
     Navigation.events().bindComponent(this);
 
-    this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeText = this.onChangeText.bind(this);
-    this.onSavePressed = this.onSavePressed.bind(this);
-
     this.state = {
       title: '',
       text: '',
     };
   }
+  topBar = new TopBar(this.props.componentId).withTitle('Add Post').withRightButton({id: 'saveBtn', text: 'Save', enabled: false}).withOptions({leftButtons: [{id: 'cancelBtn', text: 'Cancel'}]});
 
-  static get options() {
-    return {
-      topBar: {
-        title: {
-          text: 'Add Post',
-        },
-        rightButtons: [
-          {
-            id: 'saveBtn',
-            text: 'Save',
-            enabled: false,
-          },
-        ],
-        leftButtons: [
-          {
-            id: 'cancelBtn',
-            text: 'Cancel',
-          },
-        ],
-      },
-    };
+  componentDidMount = () => {
+    this.topBar.update();
   }
+
 
   navigationButtonPressed({buttonId}) {
     if (buttonId === 'cancelBtn') {
@@ -57,17 +37,7 @@ class AddPost extends Component {
 
   onChangeTitle = (title) => {
     this.setState({title});
-    Navigation.mergeOptions(this.props.componentId, {
-      topBar: {
-        rightButtons: [
-          {
-            id: 'saveBtn',
-            text: 'Save',
-            enabled: !!title,
-          },
-        ],
-      },
-    });
+    this.topBar.withRightButtons([{id: 'saveBtn', text: 'Save', enabled: !!title}]).update();
   };
 
   onChangeText = (text) => {

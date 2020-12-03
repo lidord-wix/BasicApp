@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'remx';
 import {postsStore} from './posts.store';
 import * as postsActions from './posts.actions';
+import {push, TopBar, StaticOptions} from 'rnn-copilot';
 
 class BlogScreen extends PureComponent {
   static propTypes = {
@@ -21,21 +22,18 @@ class BlogScreen extends PureComponent {
     this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
   }
 
-  static get options() {
-    return {
-      topBar: {
-        rightButtons: [
-          {
-            id: 'addPost',
-            text: 'Add',
-            color: Colors.white,
-          },
-        ],
-      },
-    };
-  }
+  // static options() {
+  //   return (
+  //     new StaticOptions()
+  //       .withTopBar(new TopBar().withRightButton({id: 'addPost', text: 'Add'}))
+  //       .get()
+  //   );
+  // }
+
+  topBar = new TopBar(this.props.componentId).withRightButton({id: 'addPost', text: 'Add'});
 
   componentDidMount() {
+    this.topBar.update();
     postsActions.fetchPosts();
   }
 
@@ -46,24 +44,8 @@ class BlogScreen extends PureComponent {
   }
 
   pushViewPostScreen = (post) => {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'blog.ViewPost',
-        options: {
-          topBar: {
-            backButton: {
-              color: Colors.green10,
-            },
-            background: {
-              color: Colors.white,
-            },
-          },
-        },
-        passProps: {
-          post,
-        },
-      },
-    });
+    const ViewPostTopBar = new TopBar().withOptions({backButton: {color: Colors.green10}, background: {color: Colors.white}});
+    push('blog.ViewPost', this.props.componentId).withProps({post}).withTopBar(ViewPostTopBar).go();
   };
 
   showAddPostModal() {

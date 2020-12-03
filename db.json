@@ -29,6 +29,12 @@
       "text": "Post content",
       "img": "https://picsum.photos/200/200/?image=195",
       "id": 12
+    },
+    {
+      "title": "post",
+      "text": "Post",
+      "img": "https://picsum.photos/200/200/?image=126",
+      "id": 14
     }
   ],
   "users": [
