@@ -3,67 +3,27 @@ import {StyleSheet, ScrollView} from 'react-native';
 import {View, Text, Image, Colors, BorderRadiuses, Spacings} from 'react-native-ui-lib';
 import _ from 'lodash';
 
-
-const mediaUrl = 'https://picsum.photos/200/200/?image=1';
-
 class GalleryScreen extends PureComponent {
   state = {};
+
+  renderImage = () => {
+    const randomImageNumber = Math.floor(Math.random() * 500 + 1);
+    return <Image key={randomImageNumber} source={{uri: `https://picsum.photos/200/200/?image=${randomImageNumber}`}} style={styles.image}/>;
+  }
+
+  renderRow = () => {
+    return (
+      <View row center>
+        {_.times(3, this.renderImage)}
+      </View>
+    );
+  }
 
   renderGallery = () => {
     return (
       <View>
-        <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=156'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=235'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=334'}} style={styles.image}/>
-        </View>
-        <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=411'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=52'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=65'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=7'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=87'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=90'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=10'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=11'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=12'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=13'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=14'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=15'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=16'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=17'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=18'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=19'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=20'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=21'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=22'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=23'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=24'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=25'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=26'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=27'}} style={styles.image}/>
-      </View>
-      <View row center>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=28'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=29'}} style={styles.image}/>
-          <Image source={{uri: 'https://picsum.photos/200/200/?image=30'}} style={styles.image}/>
-      </View>
+      {_.times(10, this.renderRow)}
     </View>
-    
     );
   }
 
