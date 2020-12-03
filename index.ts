@@ -3,7 +3,7 @@ import {registerLoggerForDebug} from 'remx';
 import {registerScreens} from './src/screens';
 import {Colors, Assets} from 'react-native-ui-lib';
 import './src/assets';
-import {App, Root, TopBar} from 'rnn-copilot';
+import {App, Root} from 'rnn-copilot';
 
 registerScreens();
 registerLoggerForDebug(console.log);
