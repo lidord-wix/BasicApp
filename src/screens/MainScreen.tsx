@@ -14,7 +14,7 @@ const renderButton = (props: any, label: string) => {
       marginH-100
       borderRadius={BorderRadiuses.br30}
       backgroundColor={Colors.green30}
-      label={`${label} Screen`}
+      label={`${label}`}
       labelStyle={{color: Colors.white}}
       text60
       onPress={() =>
@@ -25,14 +25,9 @@ const renderButton = (props: any, label: string) => {
               topBar: {
                 title: {
                   text: label,
-                  color: Colors.white,
                 },
                 backButton: {
                   title: 'Main Screen',
-                  color: 'white',
-                },
-                background: {
-                  color: Colors.green30,
                 },
               },
             },

@@ -39,14 +39,9 @@ class LoginScreen extends PureComponent {
             topBar: {
               title: {
                 text: 'Basic App',
-                color: Colors.white,
               },
               backButton:{
                 title: 'Log out',
-                color: Colors.white
-              },
-              background: {
-                color: Colors.green30,
               },
             },
           },
@@ -74,7 +69,7 @@ class LoginScreen extends PureComponent {
   render() {
     return (
       <View centerH bg-green30 flex>
-        <Text white text40L marginT-120>
+        <Text white text40L marginT-64>
           BasicApp
         </Text>
         <Text white text20BL marginT-100>
@@ -121,7 +116,7 @@ class LoginScreen extends PureComponent {
             marginH-40
             marginT-14
             link
-            green80
+            white
             text60
             label={'Sign Up'}
             onPress={this.signUp}

@@ -110,7 +110,7 @@ class SignUpScreen extends Component {
             floatOnFocus
             floatingPlaceholderColor={Colors.green30}
             underlineColor={Colors.green30}
-            green20
+            green10
             placeholder="Email:"
             placeholderTextColor={Colors.green30}
             onChangeText={(email) => this.setState({email})}
@@ -120,7 +120,7 @@ class SignUpScreen extends Component {
             floatOnFocus
             floatingPlaceholderColor={Colors.green30}
             underlineColor={Colors.green30}
-            green20
+            green10
             secureTextEntry
             placeholder="Password:"
             placeholderTextColor={Colors.green30}
@@ -131,7 +131,7 @@ class SignUpScreen extends Component {
             floatOnFocus
             floatingPlaceholderColor={Colors.green30}
             underlineColor={Colors.green30}
-            green20
+            green10
             secureTextEntry
             placeholder="Confirm password:"
             placeholderTextColor={Colors.green30}

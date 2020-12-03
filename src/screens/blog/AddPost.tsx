@@ -27,26 +27,20 @@ class AddPost extends Component {
   static get options() {
     return {
       topBar: {
-        background: {
-          color: Colors.green30,
-        },
         title: {
           text: 'Add Post',
-          color: Colors.white,
         },
         rightButtons: [
           {
             id: 'saveBtn',
             text: 'Save',
             enabled: false,
-            color: Colors.white,
           },
         ],
         leftButtons: [
           {
             id: 'cancelBtn',
             text: 'Cancel',
-            color: Colors.white,
           },
         ],
       },
@@ -70,7 +64,6 @@ class AddPost extends Component {
             id: 'saveBtn',
             text: 'Save',
             enabled: !!title,
-            color: Colors.white,
           },
         ],
       },

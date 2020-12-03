@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import {StyleSheet, FlatList, ScrollView} from 'react-native';
-import {Text, Colors, ListItem, Image, BorderRadiuses} from 'react-native-ui-lib';
+import {View ,Text, Colors, ListItem, Image, BorderRadiuses} from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
 import {connect} from 'remx';
@@ -52,7 +52,7 @@ class BlogScreen extends PureComponent {
         options: {
           topBar: {
             backButton: {
-              color: Colors.green30,
+              color: Colors.green10,
             },
             background: {
               color: Colors.white,
@@ -93,7 +93,7 @@ class BlogScreen extends PureComponent {
           style={styles.image}
         />
       </ListItem.Part>
-      <ListItem.Part middle column containerStyle={styles.border}>
+      <ListItem.Part middle column>
         <ListItem.Part containerStyle={{marginBottom: 2}}>
           <Text dark10 text70 numberOfLines={1}>{item.title}</Text>
         </ListItem.Part>
@@ -117,6 +117,7 @@ class BlogScreen extends PureComponent {
           data={posts}
           keyExtractor={this.postKeyExtractor}
           renderItem={this.renderItem}
+          ItemSeparatorComponent={() => <View style={styles.border}/>}
         />
       </ScrollView>
     );
@@ -143,7 +144,6 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.dark60,
-    paddingRight: 16
+    marginLeft: 100
   }
-
 });
