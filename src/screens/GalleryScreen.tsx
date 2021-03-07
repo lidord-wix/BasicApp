@@ -30,7 +30,7 @@ class GalleryScreen extends PureComponent {
   render() {
     return (
       <ScrollView>
-        <Text center text30 dark10 marginT-50>
+        <Text center text30 dark10 margin-30>
           Gallery Screen
         </Text>
         <View flex-wrap>

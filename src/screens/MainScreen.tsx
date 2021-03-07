@@ -30,6 +30,7 @@ const MainScreen = (props) => {
       </Text>
       <View centerV marginT-160>
       {renderButton(props, 'Login')}
+      {renderButton(props, 'Foundations')}
       {renderButton(props, 'Blog')}
       {renderButton(props, 'Gallery')}
       {renderButton(props, 'Store')}
