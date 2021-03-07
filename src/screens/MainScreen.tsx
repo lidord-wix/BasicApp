@@ -25,7 +25,7 @@ const renderButton = (props: any, label: string) => {
 const MainScreen = (props) => {
   return (
     <ScrollView>
-      <Text center text30 dark10 marginT-50>
+      <Text center text30BL dark10 marginT-50>
         Main Screen
       </Text>
       <View centerV marginT-160>

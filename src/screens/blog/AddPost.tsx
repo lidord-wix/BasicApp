@@ -59,10 +59,13 @@ class AddPost extends Component {
       <View style={styles.container}>
         <Text marginB-80 style={styles.text}>Add Your New Post</Text>
         <TextField
-          placeholder="Add title to your post"
+          placeholder={"Title"}
           value={this.state.title}
           onChangeText={this.onChangeTitle}
           underlineColor={Colors.green50}
+          floatingPlaceholder
+          helperText={"Add title to your post"}
+          style={styles.title}
         />
         <View style={styles.textArea}>
           <TextArea
@@ -89,8 +92,11 @@ const styles = StyleSheet.create({
   textArea: {
     borderWidth: 0.5,
     borderColor: Colors.grey30,
-    width: '90%',
+    width: '85%',
     height: '40%',
     paddingHorizontal: 10,
   },
+  title: {
+    width: '50%'
+  }
 });

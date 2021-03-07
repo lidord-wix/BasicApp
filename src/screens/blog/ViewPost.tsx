@@ -8,7 +8,7 @@ import {
   BorderRadiuses,
   FloatingButton,
   Dialog,
-  Button,
+  Button
 } from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
@@ -50,10 +50,11 @@ class ViewPost extends Component {
         onDismiss={this.onDialogDismiss}
         center>
         <View center br20 style={styles.deleteMessage}>
-          <Text text70 dark20 margin-10>
+          <Text text70 dark20 margin-12>
             Are you sure?
           </Text>
-          <View row>
+          <View bg-grey60 style={{width: '90%', height: 1}}/>
+          <View marginV-12 row>
             <Button
               label={'Delete'}
               link
@@ -61,6 +62,7 @@ class ViewPost extends Component {
               marginH-18
               onPress={this.deletePost}
             />
+            <View bg-grey60 style={{width: 1}}/>
             <Button
               label={'Cancel'}
               link
