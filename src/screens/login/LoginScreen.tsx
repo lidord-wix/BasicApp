@@ -1,7 +1,14 @@
 import React, {PureComponent} from 'react';
 import {StyleSheet, Alert} from 'react-native';
-import {View, Text, TextField, Colors, Button} from 'react-native-ui-lib';
-import {push, TopBar} from 'rnn-copilot';
+import {
+  View,
+  Text,
+  TextField,
+  Colors,
+  Button,
+  Image,
+} from 'react-native-ui-lib';
+import {push, TopBar, StaticOptions} from 'rnn-copilot';
 import PropTypes from 'prop-types';
 import {usersStore} from './users.store';
 import * as usersActions from './users.actions';
@@ -18,6 +25,12 @@ class LoginScreen extends PureComponent {
     users: PropTypes.array,
   };
 
+  static options() {
+    return new StaticOptions()
+      .withTopBar(new TopBar().withVisibility(false))
+      .get();
+  }
+
   componentDidMount() {
     usersActions.fetchUsers();
   }
@@ -32,8 +45,10 @@ class LoginScreen extends PureComponent {
     const user = find(users, (user) => user.email === email);
 
     if (user && user.password === password) {
-      const loginTopBar = new TopBar().withTitle('Basic App').withOptions({backButton: {title: 'Log out'}})
-      push('MainScreen', this.props.componentId).withTopBar(loginTopBar).go(); 
+      const loginTopBar = new TopBar()
+        .withTitle('Basic App')
+        .withOptions({backButton: {title: 'Log out'}});
+      push('MainScreen', this.props.componentId).withTopBar(loginTopBar).go();
     } else {
       return Alert.alert("User doesn't exist");
     }
@@ -44,10 +59,14 @@ class LoginScreen extends PureComponent {
   };
 
   render() {
-    // this.topBar.withVisibility(false).update();
-
     return (
-      <View centerH bg-green30 flex>
+      <View centerH paddingT-140 flex>
+        <Image
+          source={require('../../assets/greenBackground.jpg')}
+          height={'120%'}
+          resizeMode={'stretch'}
+          style={styles.background}
+        />
         <Text white text40L marginT-0>
           BasicApp
         </Text>
@@ -117,5 +136,8 @@ export default connect(mapStateToProps)(LoginScreen);
 const styles = StyleSheet.create({
   inputView: {
     width: '70%',
+  },
+  background: {
+    position: 'absolute',
   },
 });
