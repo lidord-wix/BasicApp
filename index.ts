@@ -9,7 +9,7 @@ registerScreens();
 // registerLoggerForDebug(console.log);
 
 App.withTopBar({noBorder: true, title: {color: Colors.white}, rightButtonColor: Colors.white, leftButtonColor: Colors.white, backButton: {icon: Assets.icons.back, color: Colors.white}, background: {color: Colors.green30}}).withLayout({
-  componentBackgroundColor: Colors.grey80,
+  componentBackgroundColor: Colors.grey80
 });
 
 Navigation.events().registerAppLaunchedListener(() => {

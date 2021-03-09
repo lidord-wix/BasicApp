@@ -7,7 +7,7 @@ class StoreScreen extends PureComponent {
   render() {
     return (
       <View>
-        <Text style={{marginTop: 360, marginLeft: 130, fontSize: 30}}>
+        <Text marginT-30 text30 center>
           Store Screen
         </Text>
       </View>

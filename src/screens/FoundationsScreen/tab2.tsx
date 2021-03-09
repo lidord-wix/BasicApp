@@ -9,7 +9,7 @@ import {
   Typography,
   Colors,
   BorderRadiuses,
-  Shadows
+  Shadows,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -30,7 +30,7 @@ class Tab2 extends Component {
 
   getHeaderElement(index: number) {
     return (
-      <View marginB-10 bg-green60 row spread style={{...Shadows.sh20.bottom}}>
+      <View marginB-10 bg-green60 row spread style={styles.header}>
         <Text marginV-10 marginL-16 grey10 text60>
           {this.getTitle(index)}
         </Text>
@@ -53,10 +53,7 @@ class Tab2 extends Component {
               key={fontKey}
               paddingV-20
               centerH
-              style={{
-                borderBottomWidth: fontKey !== 100 && 1,
-                borderColor: Colors.grey50,
-              }}>
+              style={fontKey !== 100 && styles.separator}>
               <Text bg-green80 grey10 {...modifiers}>
                 text{fontKey}
                 {weights[index - 1]}
@@ -188,15 +185,19 @@ class Tab2 extends Component {
     } = this.state;
     return (
       <ScrollView>
+        <Image
+          marginT-16
+          source={Assets.icons.x}
+          tintColor={Colors.green50}
+          resizeMode="repeat"
+          style={styles.crown}
+        />
+
         <View paddingH-20>
-          <Text marginT-20 text60BO grey10 center>
+          <Text marginT-40 text60BO grey10 center>
             Typography Usage Example:
           </Text>
-          <View
-            marginV-20
-            marginH-70
-            bg-grey60
-            style={{borderRadius: BorderRadiuses.br20}}>
+          <View marginV-20 marginH-70 bg-grey60 br20>
             <Text marginV-10 center grey10>
               {'<Text text40M>example</Text>'}
             </Text>
@@ -259,3 +260,18 @@ class Tab2 extends Component {
 }
 
 export default Tab2;
+
+const styles = StyleSheet.create({
+  crown: {
+    position: 'absolute',
+    width: '100%',
+    height: 16,
+  },
+  header: {
+    ...Shadows.sh20.bottom,
+  },
+  separator: {
+    borderBottomWidth: 1,
+    borderColor: Colors.grey50,
+  },
+});

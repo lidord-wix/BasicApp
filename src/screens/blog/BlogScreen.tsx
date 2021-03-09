@@ -1,7 +1,15 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import {StyleSheet, FlatList, ScrollView} from 'react-native';
-import {View ,Text, Colors, ListItem, Image, BorderRadiuses} from 'react-native-ui-lib';
+import {
+  View,
+  Text,
+  Colors,
+  ListItem,
+  Image,
+  BorderRadiuses,
+  Assets,
+} from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
 import {connect} from 'remx';
@@ -22,18 +30,13 @@ class BlogScreen extends PureComponent {
     this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
   }
 
-  // static options() {
-  //   return (
-  //     new StaticOptions()
-  //       .withTopBar(new TopBar().withRightButton({id: 'addPost', text: 'Add'}))
-  //       .get()
-  //   );
-  // }
-
-  topBar = new TopBar(this.props.componentId).withRightButton({id: 'addPost', text: 'Add'});
+  static options() {
+    return new StaticOptions()
+      .withTopBar(new TopBar().withRightButton({id: 'addPost', text: 'Add'}))
+      .get();
+  }
 
   componentDidMount() {
-    this.topBar.update();
     postsActions.fetchPosts();
   }
 
@@ -44,43 +47,39 @@ class BlogScreen extends PureComponent {
   }
 
   pushViewPostScreen = (post) => {
-    const ViewPostTopBar = new TopBar().withOptions({backButton: {color: Colors.green10}, background: {color: Colors.white}});
-    push('blog.ViewPost', this.props.componentId).withProps({post}).withTopBar(ViewPostTopBar).go();
+    const ViewPostTopBar = new TopBar().withOptions({
+      backButton: {color: Colors.green10},
+      background: {color: Colors.white},
+    });
+    push('blog.ViewPost', this.props.componentId)
+      .withProps({post})
+      .withTopBar(ViewPostTopBar)
+      .go();
   };
 
   showAddPostModal() {
-    Navigation.showModal({
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'blog.AddPost',
-            },
-          },
-        ],
-      },
-    });
+    push('blog.AddPost', this.props.componentId).asModal().go();
   }
 
   renderItem = ({item}) => (
     <ListItem
-      activeBackgroundColor={Colors.green20}
-      activeOpacity={0.1}
+      activeBackgroundColor={Colors.green70}
+      activeOpacity={0.6}
       height={100}
-      onPress={() => this.pushViewPostScreen(item)}
-    >
+      onPress={() => this.pushViewPostScreen(item)}>
       <ListItem.Part left>
-        <Image
-          source={{uri: item.img}}
-          style={styles.image}
-        />
+        <Image source={{uri: item.img}} style={styles.image} />
       </ListItem.Part>
       <ListItem.Part middle column>
-        <ListItem.Part containerStyle={{marginBottom: 2}}>
-          <Text dark10 text70 numberOfLines={1}>{item.title}</Text>
+        <ListItem.Part marginB-4>
+          <Text dark10 text70 numberOfLines={1}>
+            {item.title}
+          </Text>
         </ListItem.Part>
         <ListItem.Part>
-          <Text text80 dark40 numberOfLines={2}>{item.text}</Text>
+          <Text text80 dark40 numberOfLines={2}>
+            {item.text}
+          </Text>
         </ListItem.Part>
       </ListItem.Part>
     </ListItem>
@@ -92,6 +91,12 @@ class BlogScreen extends PureComponent {
     const {posts} = this.props;
     return (
       <ScrollView>
+        <Image
+          source={Assets.icons.x}
+          tintColor={Colors.green60}
+          resizeMode="repeat"
+          style={styles.background}
+        />
         <Text center marginV-40 text30 dark10>
           Posts list:
         </Text>
@@ -99,7 +104,7 @@ class BlogScreen extends PureComponent {
           data={posts}
           keyExtractor={this.postKeyExtractor}
           renderItem={this.renderItem}
-          ItemSeparatorComponent={() => <View style={styles.border}/>}
+          ItemSeparatorComponent={() => <View style={styles.border} />}
         />
       </ScrollView>
     );
@@ -121,11 +126,16 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadiuses.br20,
     marginHorizontal: 14,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: Colors.dark70
+    borderColor: Colors.dark70,
   },
   border: {
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.dark60,
-    marginLeft: 100
-  }
+    marginLeft: 100,
+  },
+  background: {
+    position: 'absolute',
+    width: '100%',
+    height: '200%',
+  },
 });

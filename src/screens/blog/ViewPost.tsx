@@ -55,7 +55,7 @@ class ViewPost extends Component {
           <Text text70 dark20 margin-12>
             Are you sure?
           </Text>
-          <View bg-grey60 style={{width: '90%', height: 1}} />
+          <View bg-grey60 style={styles.horizontalSeparator} />
           <View marginV-12 row>
             <Button
               label={'Delete'}
@@ -64,7 +64,7 @@ class ViewPost extends Component {
               marginH-18
               onPress={this.deletePost}
             />
-            <View bg-grey60 style={{width: 1}} />
+            <View bg-grey60 style={styles.verticalSeparator} />
             <Button
               label={'Cancel'}
               link
@@ -84,13 +84,23 @@ class ViewPost extends Component {
       <View style={styles.container}>
         {post.publisher && (
           <View row margin-14 marginR-180 br40>
-            <Avatar containerStyle={{borderWidth: 2, borderColor: Colors.green30}} backgroundColor={Colors.grey60} label={AvatarHelper.getInitials(post.publisher)} />
+            <Avatar
+              containerStyle={styles.avatarContainer}
+              backgroundColor={Colors.grey60}
+              label={AvatarHelper.getInitials(post.publisher)}
+            />
             <Text marginL-10 marginT-12 text70M grey10>
               {post.publisher}
             </Text>
           </View>
         )}
-        <Image marginB-20 marginT-20={!post.publisher} source={{uri: post.img}} cover style={styles.image} />
+        <Image
+          marginB-20
+          marginT-20={!post.publisher}
+          source={{uri: post.img}}
+          cover
+          style={styles.image}
+        />
         <Text marginV-20 center text40 dark10>
           {post.title}
         </Text>
@@ -129,5 +139,16 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadiuses.br20,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.dark70,
+  },
+  horizontalSeparator: {
+    width: '90%',
+    height: 1,
+  },
+  verticalSeparator: {
+    width: 1,
+  },
+  avatarContainer: {
+    borderWidth: 2,
+    borderColor: Colors.green30,
   },
 });

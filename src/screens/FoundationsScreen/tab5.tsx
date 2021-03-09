@@ -7,6 +7,8 @@ import {
   Shadows,
   BorderRadiuses,
   Spacings,
+  Image,
+  Assets,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -15,23 +17,20 @@ const VALID_SHADOWS = _.pick(Shadows, ['sh10', 'sh20', 'sh30']);
 class Tab5 extends Component {
   renderShadows(shadowsList: any, circle: boolean) {
     return [].concat(
-      _.map(shadowsList, (value: any, key: string) => this.renderShadow(value, key, circle)),
+      _.map(shadowsList, (value: any, key: string) =>
+        this.renderShadow(value, key, circle),
+      ),
     );
   }
 
   renderShadow(shadow: any, name: string, isCircle: boolean) {
-    const borderRadius = isCircle ? 120 / 2 : 2;
+    const borderRadius = isCircle ? BorderRadiuses.br100 : BorderRadiuses.br10;
     const keySuffix = isCircle ? '_circle' : '_square';
 
     return (
       <View
         key={`${name}${keySuffix}`}
-        style={[
-          styles.innerCircle,
-          styles.circle,
-          {borderRadius},
-          shadow.bottom,
-        ]}>
+        style={[styles.circle, {borderRadius}, shadow.bottom]}>
         <Text text50 grey30>
           {name}
         </Text>
@@ -42,35 +41,26 @@ class Tab5 extends Component {
   render() {
     return (
       <ScrollView>
-        <Text marginT-20 text60BO grey10 center>
+        <Image
+          marginT-16
+          source={Assets.icons.x}
+          tintColor={Colors.green50}
+          resizeMode="repeat"
+          style={styles.crown}
+        />
+
+        <Text marginT-40 text60BO grey10 center>
           Shadows Usage Example:
         </Text>
-        <View
-          center
-          marginV-20
-          marginH-84
-          bg-white
-          style={{borderRadius: BorderRadiuses.br20, ...Shadows.sh20.bottom}}>
+        <View center marginV-20 marginH-84 bg-white br20 style={styles.exampleBox}>
           <Text marginV-10 grey10 center>
             {'{...Shadows.sh30.bottom}'}
           </Text>
-          <View
-            bg-white
-            marginB-10
-            style={{
-              width: Spacings.s8,
-              height: Spacings.s8,
-              ...Shadows.sh30.bottom,
-            }}
-          />
+          <View bg-white marginB-10 style={styles.cube} />
         </View>
-        <View style={[styles.container]}>
-          <View style={styles.subContainer}>
-            {this.renderShadows(VALID_SHADOWS, true)}
-          </View>
-          <View style={styles.subContainer}>
-            {this.renderShadows(VALID_SHADOWS, false)}
-          </View>
+        <View style={styles.container}>
+          <View>{this.renderShadows(VALID_SHADOWS, true)}</View>
+          <View>{this.renderShadows(VALID_SHADOWS, false)}</View>
         </View>
       </ScrollView>
     );
@@ -85,20 +75,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  subContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   circle: {
     alignItems: 'center',
     margin: 40,
-  },
-  innerCircle: {
     width: 120,
     height: 120,
     backgroundColor: Colors.white,
     justifyContent: 'center',
+  },
+  exampleBox: {
+    ...Shadows.sh20.bottom,
+  },
+  cube: {width: Spacings.s8, height: Spacings.s8, ...Shadows.sh30.bottom},
+  crown: {
+    position: 'absolute',
+    width: '100%',
+    height: 16,
   },
 });

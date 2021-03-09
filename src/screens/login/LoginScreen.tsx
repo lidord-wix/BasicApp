@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
 import {StyleSheet, Alert} from 'react-native';
 import {View, Text, TextField, Colors, Button} from 'react-native-ui-lib';
-import {Navigation} from 'react-native-navigation';
-import {TopBar} from 'rnn-copilot';
+import {push, TopBar} from 'rnn-copilot';
 import PropTypes from 'prop-types';
 import {usersStore} from './users.store';
 import * as usersActions from './users.actions';
@@ -33,38 +32,15 @@ class LoginScreen extends PureComponent {
     const user = find(users, (user) => user.email === email);
 
     if (user && user.password === password) {
-      Navigation.push(this.props.componentId, {
-        component: {
-          name: 'MainScreen',
-          options: {
-            topBar: {
-              title: {
-                text: 'Basic App',
-              },
-              backButton:{
-                title: 'Log out',
-              },
-            },
-          },
-        },
-      });
+      const loginTopBar = new TopBar().withTitle('Basic App').withOptions({backButton: {title: 'Log out'}})
+      push('MainScreen', this.props.componentId).withTopBar(loginTopBar).go(); 
     } else {
       return Alert.alert("User doesn't exist");
     }
   };
 
   signUp = () => {
-    Navigation.showModal({
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'login.SignUpScreen',
-            },
-          },
-        ],
-      },
-    });
+    push('login.SignUpScreen', this.props.componentId).asModal().go();
   };
 
   render() {

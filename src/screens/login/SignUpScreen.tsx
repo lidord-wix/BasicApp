@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Alert} from 'react-native';
-import {View, Text, Colors, TextField, Button} from 'react-native-ui-lib';
+import {View, Text, Colors, TextField, Button, Shadows} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as usersActions from './users.actions';
@@ -143,6 +143,7 @@ class SignUpScreen extends Component {
             bg-white
             green20
             text60
+            style={styles.signUp}
             label={'Sign Me Up!'}
             onPress={this.onSignUpPressed}
           />
@@ -164,5 +165,8 @@ const styles = StyleSheet.create({
     inputView: {
       width:"70%",
     },
+    signUp: {
+      ...Shadows.sh10.bottom
+    }
   });
   
