@@ -9,6 +9,7 @@ import {
   Typography,
   Colors,
   BorderRadiuses,
+  Shadows
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -29,7 +30,7 @@ class Tab2 extends Component {
 
   getHeaderElement(index: number) {
     return (
-      <View marginB-10 bg-green60 row spread>
+      <View marginB-10 bg-green60 row spread style={{...Shadows.sh20.bottom}}>
         <Text marginV-10 marginL-16 grey10 text60>
           {this.getTitle(index)}
         </Text>

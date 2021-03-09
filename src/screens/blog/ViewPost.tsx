@@ -8,7 +8,9 @@ import {
   BorderRadiuses,
   FloatingButton,
   Dialog,
-  Button
+  Button,
+  Avatar,
+  AvatarHelper,
 } from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
@@ -53,7 +55,7 @@ class ViewPost extends Component {
           <Text text70 dark20 margin-12>
             Are you sure?
           </Text>
-          <View bg-grey60 style={{width: '90%', height: 1}}/>
+          <View bg-grey60 style={{width: '90%', height: 1}} />
           <View marginV-12 row>
             <Button
               label={'Delete'}
@@ -62,7 +64,7 @@ class ViewPost extends Component {
               marginH-18
               onPress={this.deletePost}
             />
-            <View bg-grey60 style={{width: 1}}/>
+            <View bg-grey60 style={{width: 1}} />
             <Button
               label={'Cancel'}
               link
@@ -80,7 +82,15 @@ class ViewPost extends Component {
     const {post} = this.props;
     return (
       <View style={styles.container}>
-        <Image marginV-20 source={{uri: post.img}} cover style={styles.image} />
+        {post.publisher && (
+          <View row margin-14 marginR-180 br40>
+            <Avatar containerStyle={{borderWidth: 2, borderColor: Colors.green30}} backgroundColor={Colors.grey60} label={AvatarHelper.getInitials(post.publisher)} />
+            <Text marginL-10 marginT-12 text70M grey10>
+              {post.publisher}
+            </Text>
+          </View>
+        )}
+        <Image marginB-20 marginT-20={!post.publisher} source={{uri: post.img}} cover style={styles.image} />
         <Text marginV-20 center text40 dark10>
           {post.title}
         </Text>

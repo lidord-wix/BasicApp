@@ -13,12 +13,6 @@
       "id": 8
     },
     {
-      "title": "Post title",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut auctor turpis mauris, at dictum elit malesuada et. Maecenas mollis, orci lacinia ultricies facilisis, lorem sem suscipit orci, tempor commodo mauris elit ac quam. Donec vulputate eget dolor a euismod. Duis a nibh massa. Phasellus malesuada eget nisi sit amet imperdiet. Nulla sed neque et diam sodales volutpat. Nulla ut nisi massa. Sed fringilla nisl nec porttitor pretium. Nam eu augue euismod, elementum odio quis, mollis elit. Morbi quis sodales est, eget consequat odio. Aliquam a dignissim enim.",
-      "img": "https://picsum.photos/200/200/?image=490",
-      "id": 9
-    },
-    {
       "title": "Post number X",
       "text": "Sed ac hendrerit libero. Nulla sem tortor, porta sit amet euismod sit amet, maximus ac metus. In lacinia urna et nibh convallis semper. Ut egestas nunc at nisl fringilla, ac imperdiet turpis cursus. Proin ornare pretium justo, in dapibus mi dapibus sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque vulputate nisl sit amet malesuada. Pellentesque purus justo, consectetur non arcu in, fringilla cursus arcu. Integer accumsan velit eget urna placerat, elementum finibus eros accumsan. Suspendisse sem dolor, volutpat sed placerat ut, dictum vel dolor. Quisque id nulla eleifend, faucibus erat a, commodo dui. Phasellus eleifend molestie velit, nec tempor eros cursus a. Etiam non purus faucibus, hendrerit nisl sed, placerat ipsum.",
       "img": "https://picsum.photos/200/200/?image=450",
@@ -31,10 +25,53 @@
       "id": 12
     },
     {
-      "title": "post",
-      "text": "Post",
-      "img": "https://picsum.photos/200/200/?image=126",
+      "title": "With publisher",
+      "text": "With publisher",
+      "img": "https://picsum.photos/200/200/?image=152",
+      "publisher": "Dolores Erickson",
+      "id": 13
+    },
+    {
+      "title": "Post with publisher",
+      "text": "Another post with publisher",
+      "img": "https://picsum.photos/200/200/?image=238",
+      "publisher": "Rian Leon",
       "id": 14
+    },
+    {
+      "title": "",
+      "text": "Wfwfsdfsdfsdf",
+      "img": "https://picsum.photos/200/200/?image=349",
+      "publisher": "Jay Leon",
+      "id": 15
+    },
+    {
+      "title": "",
+      "text": "Rfrtert",
+      "img": "https://picsum.photos/200/200/?image=34",
+      "publisher": "Jay Gibbs",
+      "id": 16
+    },
+    {
+      "title": "",
+      "text": "Rtret",
+      "img": "https://picsum.photos/200/200/?image=98",
+      "publisher": "Jay East",
+      "id": 18
+    },
+    {
+      "title": "",
+      "text": "Wer",
+      "img": "https://picsum.photos/200/200/?image=441",
+      "publisher": "Carley Hamer",
+      "id": 19
+    },
+    {
+      "title": "Publisher",
+      "text": "Another post with publisher",
+      "img": "https://picsum.photos/200/200/?image=491",
+      "publisher": "Billie-Jo Vang",
+      "id": 20
     }
   ],
   "users": [

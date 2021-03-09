@@ -44,6 +44,15 @@ class AddPost extends Component {
     this.setState({text});
   };
 
+  getPublisherName = () => {
+    const firstNames = ['Luci', 'Tayler', 'Dolores', 'Carley', 'Carolyn', 'Rian', 'Haris', 'Billie-Jo', 'Jay', 'Nate'];
+    const lastNames = ['Devlin', 'Vang', 'East', 'Erickson', 'Davison', 'Gibbs', 'Frost', 'Leon', 'Hamer', 'Simmons'];
+    const randomFirst = firstNames[Math.floor(Math.random() * 10)];
+    const randomLast = lastNames[Math.floor(Math.random() * 10)];
+    return randomFirst + ' ' + randomLast;
+  
+  }
+
   onSavePressed = () => {
     Navigation.dismissModal(this.props.componentId);
     const randomImageNumber = Math.floor(Math.random() * 500 + 1);
@@ -51,6 +60,7 @@ class AddPost extends Component {
       title: this.state.title,
       text: this.state.text,
       img: `https://picsum.photos/200/200/?image=${randomImageNumber}`,
+      publisher: this.getPublisherName()
     });
   };
 
@@ -64,6 +74,7 @@ class AddPost extends Component {
           onChangeText={this.onChangeTitle}
           underlineColor={Colors.green50}
           floatingPlaceholder
+          floatingPlaceholderColor={Colors.green20}
           helperText={"Add title to your post"}
           style={styles.title}
         />
@@ -71,6 +82,7 @@ class AddPost extends Component {
           <TextArea
             placeholder="Write your post here"
             onChangeText={this.onChangeText}
+            color={Colors.grey10}
           />
         </View>
       </View>

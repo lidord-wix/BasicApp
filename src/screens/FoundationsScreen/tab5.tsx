@@ -50,7 +50,7 @@ class Tab5 extends Component {
           marginV-20
           marginH-84
           bg-white
-          style={{borderRadius: BorderRadiuses.br20}}>
+          style={{borderRadius: BorderRadiuses.br20, ...Shadows.sh20.bottom}}>
           <Text marginV-10 grey10 center>
             {'{...Shadows.sh30.bottom}'}
           </Text>
