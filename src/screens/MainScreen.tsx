@@ -27,6 +27,7 @@ const renderButton = (props: any, label: string) => {
       bg-green30
       row
       spread
+      style={styles.button}
       onPress={() =>
         push(`${label}Screen`, props.componentId).withTopBar(topBar).go()
       }>
@@ -45,12 +46,11 @@ const renderButton = (props: any, label: string) => {
 
 const MainScreen = (props) => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Image
-        source={Assets.icons.x}
-        tintColor={Colors.green50}
-        resizeMode="repeat"
-        style={styles.crown}
+        source={require('../assets/greenBackground.jpg')}
+        resizeMode="stretch"
+        style={styles.background}
       />
       <Text center text30BL dark10 marginT-50>
         Main Screen
@@ -62,7 +62,7 @@ const MainScreen = (props) => {
         {renderButton(props, 'Gallery')}
         {renderButton(props, 'Store')}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -72,9 +72,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.grey80,
   },
-  crown: {
+  background: {
     position: 'absolute',
     width: '100%',
-    height: '200%',
+    height: '150%'
   },
+  button: {
+    borderWidth: 2,
+    borderColor: Colors.green10
+  }
 });
