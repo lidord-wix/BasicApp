@@ -1,5 +1,10 @@
 import React, {PureComponent} from 'react';
-import {View, Text, Image, Colors, Button, TabController, TabControllerItemProps, ColorName} from 'react-native-ui-lib';
+import {
+  View,
+  Colors,
+  TabController,
+  TabControllerItemProps,
+} from 'react-native-ui-lib';
 import _ from 'lodash';
 import Tab1 from './tab1';
 import Tab2 from './tab2';
@@ -7,9 +12,16 @@ import Tab3 from './tab3';
 import Tab4 from './tab4';
 import Tab5 from './tab5';
 import Tab6 from './tab6';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-const TABS = ['About', 'Typography', 'Colors', 'Spacings', 'Shadows', 'Border Radius'];
+const TABS = [
+  'About',
+  'Typography',
+  'Colors',
+  'Spacings',
+  'Shadows',
+  'Border Radius',
+];
 
 interface State {
   items: TabControllerItemProps[];
@@ -19,7 +31,7 @@ class FoundationsScreen extends PureComponent<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      items: []
+      items: [],
     };
 
     this.state.items = this.generateTabItems();
@@ -28,12 +40,11 @@ class FoundationsScreen extends PureComponent<{}, State> {
   generateTabItems = (): TabControllerItemProps[] => {
     let items: TabControllerItemProps[] = _.chain(TABS)
       .take(TABS.length)
-      .map<TabControllerItemProps>(tab => ({label: tab, key: tab}))
+      .map<TabControllerItemProps>((tab) => ({label: tab, key: tab}))
       .value();
 
     return items;
   };
-
 
   renderTabPages() {
     return (
@@ -63,10 +74,7 @@ class FoundationsScreen extends PureComponent<{}, State> {
   render() {
     return (
       <View flex bg-grey70>
-        <TabController
-          asCarousel
-          items={this.state.items}
-        >
+        <TabController asCarousel items={this.state.items}>
           <TabController.TabBar
             backgroundColor={Colors.grey70}
             activeBackgroundColor={Colors.green80}
@@ -74,8 +82,7 @@ class FoundationsScreen extends PureComponent<{}, State> {
             labelColor={Colors.grey10}
             selectedLabelColor={Colors.green30}
             indicatorStyle={styles.indicator}
-          >
-          </TabController.TabBar>
+          />
           {this.renderTabPages()}
         </TabController>
       </View>
@@ -87,6 +94,6 @@ export default FoundationsScreen;
 
 const styles = StyleSheet.create({
   indicator: {
-    backgroundColor: Colors.green30
-  }
-})
+    backgroundColor: Colors.green30,
+  },
+});

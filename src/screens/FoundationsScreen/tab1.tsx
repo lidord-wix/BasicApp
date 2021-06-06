@@ -1,21 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import {View, Text, Image, Assets, Colors} from 'react-native-ui-lib';
+import {View, Text, Image} from 'react-native-ui-lib';
 
 class Tab1 extends Component {
   state = {};
   render() {
     return (
       <View>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
         <View center paddingH-30 marginT-20>
-          <Text marginT-20 grey10 center text70BO>
+          <Text marginT-10 center text60BO grey10>
             This app is based on RNUI and RNN
           </Text>
           <Image
@@ -36,15 +29,15 @@ class Tab1 extends Component {
             RNUI (React Native UI Lib) is a UI Toolset & Components Library for
             React Native
           </Text>
-          <Text marginV-12 grey10 center text70BO>
+          <Text marginT-40 grey10 center text70BO>
             Download the RNUI's expo app to discover more UI components and
             features
           </Text>
           <Image
+            marginT-20
             style={styles.QR}
             source={{
-              uri:
-                'https://user-images.githubusercontent.com/1780255/76164023-f2171400-6153-11ea-962d-d57b64a08a80.png',
+              uri: 'https://user-images.githubusercontent.com/1780255/76164023-f2171400-6153-11ea-962d-d57b64a08a80.png',
             }}
           />
         </View>
@@ -58,13 +51,15 @@ export default Tab1;
 const styles = StyleSheet.create({
   logo: {
     width: 100,
-    height: 100
+    height: 100,
   },
   QR: {
     width: 140,
-    height: 140
+    height: 140,
   },
   crown: {
-    position: 'absolute', width: '100%', height: 16
-  }
-})
+    position: 'absolute',
+    width: '100%',
+    height: 16,
+  },
+});

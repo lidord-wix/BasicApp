@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import {
-  View,
-  Text,
-  Spacings,
-  BorderRadiuses,
-  Image,
-  Assets,
-  Colors,
-} from 'react-native-ui-lib';
+import {View, Text, Spacings} from 'react-native-ui-lib';
 import _ from 'lodash';
 
 class Tab4 extends Component {
@@ -16,15 +8,8 @@ class Tab4 extends Component {
   render() {
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
         <View paddingH-18>
-          <Text marginT-40 text60BO grey10 center>
+          <Text marginT-30 text60BO grey10 center>
             Spacings Usage Example:
           </Text>
           <View center marginV-20 marginH-40 bg-grey60 br20>

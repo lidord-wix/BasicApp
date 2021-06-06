@@ -7,8 +7,6 @@ import {
   Colors,
   Typography,
   Toast,
-  Image,
-  Assets,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -105,14 +103,7 @@ class Tab3 extends Component {
           visible={this.state.showToast}
         />
         <ScrollView>
-          <Image
-            marginT-16
-            source={Assets.icons.x}
-            tintColor={Colors.green50}
-            resizeMode="repeat"
-            style={styles.crown}
-          />
-          <Text marginT-40 text60BO grey10 center>
+          <Text marginT-30 text60BO grey10 center>
             Colors Usage Example:
           </Text>
           <View marginV-20 marginH-84 bg-grey60 br20>

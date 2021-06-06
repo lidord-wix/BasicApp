@@ -11,11 +11,9 @@ import {
 import {registerScreens} from '../screens';
 import {push, TopBar} from 'rnn-copilot';
 
-
 registerScreens();
 
 const renderButton = (props: any, label: string) => {
-
   const topBar = new TopBar()
     .withTitle(label)
     .withOptions({backButton: {title: 'Main Screen'}});
@@ -70,10 +68,10 @@ const styles = StyleSheet.create({
   background: {
     position: 'absolute',
     width: '100%',
-    height: '150%'
+    height: '150%',
   },
   button: {
     borderWidth: 1,
-    borderColor: Colors.green10
-  }
+    borderColor: Colors.green10,
+  },
 });

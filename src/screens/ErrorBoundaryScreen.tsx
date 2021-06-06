@@ -1,4 +1,5 @@
 import React, {PureComponent, Component} from 'react';
+import {StyleSheet} from 'react-native';
 import {
   View,
   Text,
@@ -45,7 +46,7 @@ class ErrorComp extends Component {
       <Button
         marginT-50
         backgroundColor={Colors.green30}
-        labelStyle={Typography.text60}
+        labelStyle={styles.button}
         label={'Trigger Error'}
         onPress={this.onPress}
       />
@@ -58,10 +59,7 @@ class ErrorBoundaryScreen extends PureComponent {
 
   render() {
     return (
-      <View
-        bg-white
-        paddingH-20
-        style={{alignItems: 'center', flex: 1, backgroundColor: 'white'}}>
+      <View bg-white paddingH-20 style={styles.container}>
         <View row marginT-80 center>
           <View bg-grey30 marginR-20 width={8} height={8} br100 />
           <View bg-grey30 marginR-20 width={8} height={8} br100 />
@@ -70,7 +68,7 @@ class ErrorBoundaryScreen extends PureComponent {
           <View bg-grey30 width={8} height={8} br100 />
         </View>
         <Text marginT-60 text50 grey30 center>
-          Error boundary example 
+          Error boundary example
         </Text>
         <Text marginT-20 text60M grey30 center>
           Press on the button to see your fallback UI
@@ -83,3 +81,14 @@ class ErrorBoundaryScreen extends PureComponent {
 }
 
 export default ErrorBoundaryScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: 'white'
+  },
+  button: {
+    ...Typography.text60
+  }
+});

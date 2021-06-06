@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import {
-  View,
-  Text,
-  Colors,
-  TextField,
-  TextArea,
-  Image,
-  Assets,
-} from 'react-native-ui-lib';
+import {View, Text, Colors, TextField, TextArea} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from './posts.actions';
@@ -101,13 +93,6 @@ class AddPost extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
         <Text marginV-120 style={styles.text}>
           Add Your New Post
         </Text>
@@ -128,13 +113,6 @@ class AddPost extends Component {
             color={Colors.grey10}
           />
         </View>
-        <Image
-          marginT-60
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.bottomCrown}
-        />
       </View>
     );
   }

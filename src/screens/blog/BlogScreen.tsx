@@ -8,7 +8,6 @@ import {
   ListItem,
   Image,
   BorderRadiuses,
-  Assets,
 } from 'react-native-ui-lib';
 import {Navigation} from 'react-native-navigation';
 import PropTypes from 'prop-types';
@@ -91,12 +90,6 @@ class BlogScreen extends PureComponent {
     const {posts} = this.props;
     return (
       <ScrollView>
-        <Image
-          source={Assets.icons.x}
-          tintColor={Colors.green60}
-          resizeMode="repeat"
-          style={styles.background}
-        />
         <Text center marginV-40 text30 dark10>
           Posts list:
         </Text>

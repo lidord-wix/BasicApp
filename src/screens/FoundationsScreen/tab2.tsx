@@ -8,8 +8,7 @@ import {
   Assets,
   Typography,
   Colors,
-  BorderRadiuses,
-  Shadows,
+  Shadows
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -185,16 +184,8 @@ class Tab2 extends Component {
     } = this.state;
     return (
       <ScrollView>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
-
         <View paddingH-20>
-          <Text marginT-40 text60BO grey10 center>
+          <Text marginT-30 text60BO grey10 center>
             Typography Usage Example:
           </Text>
           <View marginV-20 marginH-70 bg-grey60 br20>

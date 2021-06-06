@@ -1,29 +1,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import {
-  View,
-  Text,
-  BorderRadiuses,
-  Colors,
-  Spacings,
-  Image,
-  Assets,
-} from 'react-native-ui-lib';
+import {View, Text, BorderRadiuses, Spacings} from 'react-native-ui-lib';
 import _ from 'lodash';
 
 class Tab6 extends Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
-
-        <Text marginT-40 text60BO grey10 center>
+        <Text marginT-30 text60BO grey10 center>
           Border Radius Usage Example:
         </Text>
         <View center marginV-20 bg-grey60 br20 width={220}>

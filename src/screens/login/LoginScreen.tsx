@@ -82,7 +82,7 @@ class LoginScreen extends PureComponent {
             white
             placeholder="Email:"
             placeholderTextColor={Colors.white}
-            onChangeText={(email) => this.setState({email})}
+            onChangeText={(email: string) => this.setState({email})}
           />
           <TextField
             floatingPlaceholder
@@ -93,7 +93,7 @@ class LoginScreen extends PureComponent {
             secureTextEntry
             placeholder="Password:"
             placeholderTextColor={Colors.white}
-            onChangeText={(password) => this.setState({password})}
+            onChangeText={(password: string) => this.setState({password})}
           />
           <Button
             link

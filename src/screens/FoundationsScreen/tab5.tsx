@@ -7,8 +7,6 @@ import {
   Shadows,
   BorderRadiuses,
   Spacings,
-  Image,
-  Assets,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -41,18 +39,16 @@ class Tab5 extends Component {
   render() {
     return (
       <ScrollView>
-        <Image
-          marginT-16
-          source={Assets.icons.x}
-          tintColor={Colors.green50}
-          resizeMode="repeat"
-          style={styles.crown}
-        />
-
-        <Text marginT-40 text60BO grey10 center>
+        <Text marginT-30 text60BO grey10 center>
           Shadows Usage Example:
         </Text>
-        <View center marginV-20 marginH-84 bg-white br20 style={styles.exampleBox}>
+        <View
+          center
+          marginV-20
+          marginH-84
+          bg-white
+          br20
+          style={styles.exampleBox}>
           <Text marginV-10 grey10 center>
             {'{...Shadows.sh30.bottom}'}
           </Text>
