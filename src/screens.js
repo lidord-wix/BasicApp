@@ -9,7 +9,7 @@ export function registerScreens() {
   Navigation.registerComponent('LoginScreen', () => require('./screens/login/LoginScreen').default);
   Navigation.registerComponent('login.SignUpScreen', () => require('./screens/login/SignUpScreen').default);
   Navigation.registerComponent('GalleryScreen', () => require('./screens/GalleryScreen').default);
-  Navigation.registerComponent('StoreScreen', () => require('./screens/StoreScreen').default);
+  Navigation.registerComponent('ErrorBoundaryScreen', () => require('./screens/ErrorBoundaryScreen').default);
   Navigation.registerComponent('FoundationsScreen', () => require('./screens/FoundationsScreen/index').default);
 
 }

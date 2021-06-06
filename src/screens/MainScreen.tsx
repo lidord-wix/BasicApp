@@ -1,10 +1,8 @@
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   View,
   Text,
-  Button,
-  BorderRadiuses,
   Colors,
   Assets,
   Image,
@@ -13,9 +11,11 @@ import {
 import {registerScreens} from '../screens';
 import {push, TopBar} from 'rnn-copilot';
 
+
 registerScreens();
 
 const renderButton = (props: any, label: string) => {
+
   const topBar = new TopBar()
     .withTitle(label)
     .withOptions({backButton: {title: 'Main Screen'}});
@@ -44,14 +44,9 @@ const renderButton = (props: any, label: string) => {
   );
 };
 
-const MainScreen = (props) => {
+const MainScreen = (props: any) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../assets/greenBackground.jpg')}
-        resizeMode="stretch"
-        style={styles.background}
-      />
       <Text center text30BL dark10 marginT-50>
         Main Screen
       </Text>
@@ -60,7 +55,7 @@ const MainScreen = (props) => {
         {renderButton(props, 'Foundations')}
         {renderButton(props, 'Blog')}
         {renderButton(props, 'Gallery')}
-        {renderButton(props, 'Store')}
+        {renderButton(props, 'ErrorBoundary')}
       </View>
     </View>
   );
@@ -78,7 +73,7 @@ const styles = StyleSheet.create({
     height: '150%'
   },
   button: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: Colors.green10
   }
 });
