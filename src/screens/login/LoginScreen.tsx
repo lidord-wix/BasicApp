@@ -60,65 +60,70 @@ class LoginScreen extends PureComponent {
 
   render() {
     return (
-      <View centerH paddingT-140 flex>
+      <View center flex>
         <Image
           source={require('../../assets/greenBackground.jpg')}
-          height={'120%'}
-          resizeMode={'stretch'}
           style={styles.background}
         />
-        <Text white text40L marginT-0>
-          BasicApp
-        </Text>
-        <Text white text20BL marginT-100>
-          Welcome!
-        </Text>
-        <View marginT-40 style={styles.inputView}>
-          <TextField
-            floatingPlaceholder
-            floatOnFocus
-            floatingPlaceholderColor={Colors.white}
-            underlineColor={Colors.white}
-            white
-            placeholder="Email:"
-            placeholderTextColor={Colors.white}
-            onChangeText={(email: string) => this.setState({email})}
-          />
-          <TextField
-            floatingPlaceholder
-            floatOnFocus
-            floatingPlaceholderColor={Colors.white}
-            underlineColor={Colors.white}
-            white
-            secureTextEntry
-            placeholder="Password:"
-            placeholderTextColor={Colors.white}
-            onChangeText={(password: string) => this.setState({password})}
-          />
-          <Button
-            link
-            white
-            label={'Forgot Password?'}
-            onPress={this.remindPassword}
-          />
-          <Button
-            marginH-40
-            marginT-120
-            bg-white
-            green20
-            text60
-            label={'Login'}
-            onPress={this.login}
-          />
-          <Button
-            marginH-40
-            marginT-14
-            link
-            white
-            text60
-            label={'Sign Up'}
-            onPress={this.signUp}
-          />
+        <View flex-2 centerV>
+          <Text white text40L>
+            BasicApp
+          </Text>
+        </View>
+        <View flex centerV>
+          <Text white text20BL>
+            Welcome!
+          </Text>
+        </View>
+        <View style={styles.inputView} flex-4>
+          <View flex centerV>
+            <TextField
+              floatingPlaceholder
+              floatOnFocus
+              floatingPlaceholderColor={Colors.white}
+              underlineColor={Colors.white}
+              white
+              placeholder="Email:"
+              placeholderTextColor={Colors.white}
+              onChangeText={(email: string) => this.setState({email})}
+            />
+            <TextField
+              floatingPlaceholder
+              floatOnFocus
+              floatingPlaceholderColor={Colors.white}
+              underlineColor={Colors.white}
+              white
+              secureTextEntry
+              placeholder="Password:"
+              placeholderTextColor={Colors.white}
+              onChangeText={(password: string) => this.setState({password})}
+            />
+            <Button
+              link
+              white
+              label={'Forgot Password?'}
+              onPress={this.remindPassword}
+            />
+          </View>
+          <View centerV flex>
+            <Button
+              marginH-40
+              bg-white
+              green20
+              text60
+              label={'Login'}
+              onPress={this.login}
+            />
+            <Button
+              marginH-40
+              link
+              white
+              text60
+              label={'Sign Up'}
+              onPress={this.signUp}
+              marginT-14
+            />
+          </View>
         </View>
       </View>
     );
@@ -139,5 +144,7 @@ const styles = StyleSheet.create({
   },
   background: {
     position: 'absolute',
+    resizeMode: 'stretch',
+    height: '100%',
   },
 });
