@@ -80,8 +80,8 @@ class ErrorBoundaryScreen extends PureComponent {
             Press on the button to see your fallback UI
           </Text>
         </View>
-        <View flex-4>
-          <Image height={200} width={200} source={purchaseImg} />
+        <View center flex-4>
+          <Image height={300} width={300} source={purchaseImg} />
         </View>
         <View flex-2>
           <ErrorComp />

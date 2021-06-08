@@ -47,10 +47,12 @@ const renderButton = (props: any, label: string) => {
 const MainScreen = (props: any) => {
   return (
     <View flex centerV style={styles.container}>
-      <Text center text30BL marginT-50>
-        Main Screen
-      </Text>
-      <View flex centerV>
+      <View flex center>
+        <Text text30BL>
+          Main Screen
+        </Text>
+      </View>
+      <View flex-2>
         {renderButton(props, 'Login')}
         {renderButton(props, 'Foundations')}
         {renderButton(props, 'Blog')}
