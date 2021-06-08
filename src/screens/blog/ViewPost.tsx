@@ -118,7 +118,7 @@ class ViewPost extends Component {
             backgroundColor: 'transparent',
           }}
         />
-        {this.state.dialog && this.renderDialog()}
+        {this.renderDialog()}
       </View>
     );
   }
