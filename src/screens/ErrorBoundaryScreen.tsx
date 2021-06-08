@@ -10,8 +10,7 @@ import {
   UIComponent,
 } from 'react-native-ui-lib';
 
-// const peopleImg = require('https://image.freepik.com/free-vector/group-people-working-together_52683-28615.jpg');
-const purchaseImg = require('../assets/purchase.png');
+const playImg = require('../assets/Play.png');
 const errorImg = require('../assets/Error.png');
 
 // @ts-ignore
@@ -72,7 +71,7 @@ class ErrorBoundaryScreen extends PureComponent {
           <View bg-grey30 marginR-20 width={8} height={8} br100 />
           <View bg-grey30 width={8} height={8} br100 />
         </View>
-        <View flex>
+        <View flex marginB-20>
           <Text text50 center>
             Error boundary example
           </Text>
@@ -81,7 +80,7 @@ class ErrorBoundaryScreen extends PureComponent {
           </Text>
         </View>
         <View center flex-4>
-          <Image height={300} width={300} source={purchaseImg} />
+          <Image height={300} width={400} resizeMode={'stretch'} source={playImg} />
         </View>
         <View flex-2>
           <ErrorComp />

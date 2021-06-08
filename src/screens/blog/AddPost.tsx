@@ -93,24 +93,27 @@ class AddPost extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text marginV-120 style={styles.text}>
-          Add Your New Post
-        </Text>
-        <TextField
-          placeholder={'Title'}
-          value={this.state.title}
-          onChangeText={this.onChangeTitle}
-          underlineColor={Colors.green50}
-          floatingPlaceholder
-          floatingPlaceholderColor={Colors.green20}
-          helperText={'Add title to your post'}
-          style={styles.title}
-        />
-        <View bg-white style={styles.textArea}>
+        <View center flex>
+          <Text style={styles.text}>Add Your New Post</Text>
+        </View>
+        <View flex>
+          <TextField
+            placeholder={'Title'}
+            value={this.state.title}
+            onChangeText={this.onChangeTitle}
+            underlineColor={Colors.green50}
+            floatingPlaceholder
+            floatingPlaceholderColor={Colors.green20}
+            helperText={'Add title to your post'}
+            style={styles.title}
+          />
+        </View>
+        <View flex-3 bg-white style={styles.textArea}>
           <TextArea
             placeholder="Write your post here"
             onChangeText={this.onChangeText}
             color={Colors.grey10}
+            style={{height: 20}}
           />
         </View>
       </View>
@@ -134,6 +137,7 @@ const styles = StyleSheet.create({
     width: '85%',
     height: '40%',
     paddingHorizontal: 10,
+    marginBottom: 40,
   },
   title: {
     width: '50%',

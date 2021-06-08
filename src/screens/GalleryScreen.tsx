@@ -7,17 +7,24 @@ import {
   Colors,
   BorderRadiuses,
   Spacings,
-  SegmentedControl
+  SegmentedControl,
+  Carousel,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
+enum GalleryType {
+  GRID = 'grid',
+  CAROUSEL = 'carousel',
+  CUSTOM = 'custom',
+}
+
 class GalleryScreen extends PureComponent {
-  state = {grid: true};
+  state = {type: GalleryType.GRID};
 
   getRandomImageNumber = () => Math.floor(Math.random() * 500 + 1);
 
   renderImage = (size: number) => {
-    const {grid} = this.state;
+    const {type} = this.state;
     const imageNumber = this.getRandomImageNumber();
     return (
       <Image
@@ -25,7 +32,10 @@ class GalleryScreen extends PureComponent {
         source={{
           uri: `https://picsum.photos/200/200/?image=${imageNumber}`,
         }}
-        style={[styles.image, {margin: grid ? Spacings.s2 : Spacings.s1}]}
+        style={[
+          styles.image,
+          {margin: type === GalleryType.GRID ? Spacings.s2 : Spacings.s1},
+        ]}
         width={size}
         height={size}
       />
@@ -41,32 +51,67 @@ class GalleryScreen extends PureComponent {
   };
 
   renderCustomView = () => {
-    return (<View centerH>
-      {this.renderImage(350)}
-      {_.times(30, index => this.renderRow(index, 6, 50))}
-    </View>);
-  }
+    return (
+      <View centerH>
+        {this.renderImage(350)}
+        {_.times(30, (index) => this.renderRow(index, 6, 50))}
+      </View>
+    );
+  };
 
   renderGridView = () => {
-    return <View>{_.times(15, index => this.renderRow(index, 3, 100))}</View>;
+    return <View>{_.times(15, (index) => this.renderRow(index, 3, 100))}</View>;
+  };
+
+  renderCarouselView = () => {
+    return (
+      <View marginL-s7>
+        <Carousel
+          loop
+          pageControlProps={{limitShownPages: true}}
+          pageControlPosition={'under'}>
+          {_.times(10, () => this.renderImage(350))}
+        </Carousel>
+      </View>
+    );
   };
 
   renderGallery = () => {
-    return this.state.grid ? this.renderGridView() : this.renderCustomView();
+    const {type} = this.state;
+    switch (type) {
+      case GalleryType.CAROUSEL:
+        return this.renderCarouselView();
+      case GalleryType.CUSTOM:
+        return this.renderCustomView();
+      case GalleryType.GRID:
+      default:
+        return this.renderGridView();
+    }
   };
 
   updateView = (index: number) => {
-    this.setState({grid: !index})
-  }
+    if (index === 0) {
+      this.setState({type: GalleryType.GRID});
+    } else if (index === 1) {
+      this.setState({type: GalleryType.CAROUSEL});
+    } else {
+      this.setState({type: GalleryType.CUSTOM});
+    }
+  };
 
   render() {
     return (
-      <ScrollView >
+      <ScrollView>
         <Text center text30 margin-30>
           Gallery Screen
         </Text>
-        <SegmentedControl segments={[{label: 'Grid'}, {label: 'Custom'}]} onChangeIndex={index => this.updateView(index)}/>
-        <View marginT-20 flex-wrap>{this.renderGallery()}</View>
+        <SegmentedControl
+          segments={[{label: 'Grid'}, {label: 'Carousel'}, {label: 'Custom'}]}
+          onChangeIndex={(index) => this.updateView(index)}
+        />
+        <View marginT-20 flex-wrap>
+          {this.renderGallery()}
+        </View>
       </ScrollView>
     );
   }
