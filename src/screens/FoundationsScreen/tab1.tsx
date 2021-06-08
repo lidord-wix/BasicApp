@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 import {View, Text, Image} from 'react-native-ui-lib';
 
 class Tab1 extends Component {
   state = {};
   render() {
     return (
-      <View>
+      <ScrollView>
         <View center paddingH-30 marginT-20>
           <Text marginT-10 center text60BO grey10>
             This app is based on RNUI and RNN
@@ -34,14 +34,14 @@ class Tab1 extends Component {
             features
           </Text>
           <Image
-            marginT-20
+            marginV-20
             style={styles.QR}
             source={{
               uri: 'https://user-images.githubusercontent.com/1780255/76164023-f2171400-6153-11ea-962d-d57b64a08a80.png',
             }}
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

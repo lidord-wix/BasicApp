@@ -10,6 +10,7 @@ import {
   UIComponent,
 } from 'react-native-ui-lib';
 
+// const peopleImg = require('https://image.freepik.com/free-vector/group-people-working-together_52683-28615.jpg');
 const purchaseImg = require('../assets/purchase.png');
 const errorImg = require('../assets/Error.png');
 
@@ -21,7 +22,7 @@ UIComponent.defaultProps.renderError = (
     <Text center text50 grey30 marginT-100>
       Oops... Looks Like Something Went Wrong!
     </Text>
-    <Image marginT-50 source={errorImg} width={300} height={300} />
+    <Image marginT-50 source={errorImg} resizeMode={'center'} width={300} height={300} />
     <Text marginT-50 text60M grey20>
       Please refresh the app and try again
     </Text>
@@ -44,7 +45,6 @@ class ErrorComp extends Component {
 
     return (
       <Button
-        marginT-50
         backgroundColor={Colors.green30}
         labelStyle={styles.button}
         label={'Trigger Error'}
@@ -59,22 +59,28 @@ class ErrorBoundaryScreen extends PureComponent {
 
   render() {
     return (
-      <View bg-white paddingH-20 style={styles.container}>
-        <View row marginT-80 center>
-          <View bg-grey30 marginR-20 width={8} height={8} br100 />
+      <View bg-white center paddingH-20 flex>
+        <View row center flex-2>
           <View bg-grey30 marginR-20 width={8} height={8} br100 />
           <View bg-grey30 marginR-20 width={8} height={8} br100 />
           <View bg-green30 marginR-20 width={16} height={16} br100 />
+          <View bg-grey30 marginR-20 width={8} height={8} br100 />
           <View bg-grey30 width={8} height={8} br100 />
         </View>
-        <Text marginT-60 text50 grey30 center>
-          Error boundary example
-        </Text>
-        <Text marginT-20 text60M grey30 center>
-          Press on the button to see your fallback UI
-        </Text>
-        <Image marginT-50 width={300} height={300} source={purchaseImg} />
-        <ErrorComp />
+        <View flex>
+          <Text text50 center grey30>
+            Error boundary example
+          </Text>
+          <Text text60M marginT-20 grey30 center>
+            Press on the button to see your fallback UI
+          </Text>
+        </View>
+        <View flex-4>
+          <Image height={200} source={purchaseImg}/>
+        </View>
+        <View flex-2>
+          <ErrorComp/>
+        </View>
       </View>
     );
   }
@@ -83,11 +89,6 @@ class ErrorBoundaryScreen extends PureComponent {
 export default ErrorBoundaryScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    backgroundColor: 'white'
-  },
   button: {
     ...Typography.text60
   }

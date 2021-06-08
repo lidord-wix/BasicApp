@@ -19,7 +19,7 @@ const renderButton = (props: any, label: string) => {
     .withOptions({backButton: {title: 'Main Screen'}});
   return (
     <TouchableOpacity
-      marginT-12
+      marginT-20
       marginH-100
       br30
       bg-green30
@@ -35,7 +35,7 @@ const renderButton = (props: any, label: string) => {
       <Image
         tintColor={Colors.white}
         marginT-16
-        marginR-14
+        marginR-10
         source={Assets.icons.chevronRight}
       />
     </TouchableOpacity>
@@ -44,11 +44,11 @@ const renderButton = (props: any, label: string) => {
 
 const MainScreen = (props: any) => {
   return (
-    <View style={styles.container}>
+    <View flex centerV style={styles.container}>
       <Text center text30BL dark10 marginT-50>
         Main Screen
       </Text>
-      <View marginT-160>
+      <View flex centerV>
         {renderButton(props, 'Login')}
         {renderButton(props, 'Foundations')}
         {renderButton(props, 'Blog')}
