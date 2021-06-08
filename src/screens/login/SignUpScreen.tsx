@@ -101,11 +101,11 @@ class SignUpScreen extends Component {
   render() {
     return (
       <View centerH flex>
-        <Text green20 text50L marginT-40>
+        <Text text50L marginT-40 color={Colors.green20}>
           BasicApp
         </Text>
         <View center flex>
-          <Text green20 text30BL>
+          <Text text30BL color={Colors.green20}>
             Please Sign Up:
           </Text>
         </View>
@@ -147,7 +147,7 @@ class SignUpScreen extends Component {
           <View flex centerV>
             <Button
               marginH-40
-              bg-white
+              backgroundColor={Colors.white}
               green20
               text60
               style={styles.signUp}

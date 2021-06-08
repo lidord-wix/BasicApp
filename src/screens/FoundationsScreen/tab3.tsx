@@ -66,7 +66,7 @@ class Tab3 extends Component {
           );
           return (
             <View key={baseColor} paddingL-12>
-              <Text marginB-4 text60 dark30>
+              <Text marginB-4 text60 color={Colors.grey30}>
                 {baseColor}
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -103,14 +103,14 @@ class Tab3 extends Component {
           visible={this.state.showToast}
         />
         <ScrollView>
-          <Text marginT-30 text60BO grey10 center>
+          <Text marginT-30 text60BO center>
             Colors Usage Example:
           </Text>
           <View marginV-20 marginH-84 bg-grey60 br20>
-            <Text marginV-10 grey10 center>
+            <Text marginV-10 center>
               {'<Text green30>example</Text>'}
             </Text>
-            <Text marginB-10 center text40M green30>
+            <Text marginB-10 center text40M color={Colors.green30}>
               example
             </Text>
           </View>

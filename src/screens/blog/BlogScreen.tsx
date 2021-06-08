@@ -71,12 +71,12 @@ class BlogScreen extends PureComponent {
       </ListItem.Part>
       <ListItem.Part middle column>
         <ListItem.Part marginB-4>
-          <Text dark10 text70 numberOfLines={1}>
+          <Text text70 color={Colors.grey30} numberOfLines={1}>
             {item.title}
           </Text>
         </ListItem.Part>
         <ListItem.Part>
-          <Text text80 dark40 numberOfLines={2}>
+          <Text text80 numberOfLines={2}>
             {item.text}
           </Text>
         </ListItem.Part>
@@ -90,7 +90,7 @@ class BlogScreen extends PureComponent {
     const {posts} = this.props;
     return (
       <ScrollView>
-        <Text center marginV-40 text30 dark10>
+        <Text center marginV-40 text30>
           Posts list:
         </Text>
         <FlatList

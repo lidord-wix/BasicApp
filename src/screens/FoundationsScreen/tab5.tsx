@@ -29,7 +29,7 @@ class Tab5 extends Component {
       <View
         key={`${name}${keySuffix}`}
         style={[styles.circle, {borderRadius}, shadow.bottom]}>
-        <Text text50 grey30>
+        <Text text50 color={Colors.grey20}>
           {name}
         </Text>
       </View>
@@ -39,7 +39,7 @@ class Tab5 extends Component {
   render() {
     return (
       <ScrollView>
-        <Text marginT-30 text60BO grey10 center>
+        <Text marginT-30 text60BO center>
           Shadows Usage Example:
         </Text>
         <View
@@ -49,7 +49,7 @@ class Tab5 extends Component {
           bg-white
           br20
           style={styles.exampleBox}>
-          <Text marginV-10 grey10 center>
+          <Text marginV-10 center>
             {'{...Shadows.sh30.bottom}'}
           </Text>
           <View bg-white marginB-10 style={styles.cube} />

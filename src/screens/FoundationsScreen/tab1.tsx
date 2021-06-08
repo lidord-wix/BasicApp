@@ -8,7 +8,7 @@ class Tab1 extends Component {
     return (
       <ScrollView>
         <View center paddingH-30 marginT-20>
-          <Text marginT-10 center text60BO grey10>
+          <Text marginT-10 center text60BO>
             This app is based on RNUI and RNN
           </Text>
           <Image
@@ -16,7 +16,7 @@ class Tab1 extends Component {
             style={styles.logo}
             source={require('../../assets/RNN.png')}
           />
-          <Text grey10 center>
+          <Text center>
             RNN (React Native Navigation) provides 100% native platform
             navigation on both iOS and Android for React Native apps.
           </Text>
@@ -25,11 +25,11 @@ class Tab1 extends Component {
             style={styles.logo}
             source={require('../../assets/RNUI.png')}
           />
-          <Text grey10 center>
+          <Text center>
             RNUI (React Native UI Lib) is a UI Toolset & Components Library for
             React Native
           </Text>
-          <Text marginT-40 grey10 center text70BO>
+          <Text marginT-40 center text70BO>
             Download the RNUI's expo app to discover more UI components and
             features
           </Text>

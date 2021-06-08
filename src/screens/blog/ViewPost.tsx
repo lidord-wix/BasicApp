@@ -52,7 +52,7 @@ class ViewPost extends Component {
         onDismiss={this.onDialogDismiss}
         center>
         <View center br20 style={styles.deleteMessage}>
-          <Text text70 dark20 margin-12>
+          <Text text70 color={Colors.grey20} margin-12>
             Are you sure?
           </Text>
           <View bg-grey60 style={styles.horizontalSeparator} />
@@ -89,7 +89,7 @@ class ViewPost extends Component {
               backgroundColor={Colors.grey60}
               label={AvatarHelper.getInitials(post.publisher)}
             />
-            <Text marginL-10 marginT-12 text70M grey10>
+            <Text marginL-10 marginT-12 text70M>
               {post.publisher}
             </Text>
           </View>
@@ -101,11 +101,11 @@ class ViewPost extends Component {
           cover
           style={styles.image}
         />
-        <Text marginV-20 center text40 dark10>
+        <Text marginV-20 center text40>
           {post.title}
         </Text>
         <ScrollView contentContainerStyle={styles.content}>
-          <Text text70 dark20>
+          <Text text70 color={Colors.grey20}>
             {post.text}
           </Text>
         </ScrollView>

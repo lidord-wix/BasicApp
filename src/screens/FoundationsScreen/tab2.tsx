@@ -8,7 +8,7 @@ import {
   Assets,
   Typography,
   Colors,
-  Shadows
+  Shadows,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -30,7 +30,7 @@ class Tab2 extends Component {
   getHeaderElement(index: number) {
     return (
       <View marginB-10 bg-green60 row spread style={styles.header}>
-        <Text marginV-10 marginL-16 grey10 text60>
+        <Text marginV-10 marginL-16 text60>
           {this.getTitle(index)}
         </Text>
         <Image marginT-15 marginR-20 source={this.getChevron(index)} />
@@ -53,11 +53,11 @@ class Tab2 extends Component {
               paddingV-20
               centerH
               style={fontKey !== 100 && styles.separator}>
-              <Text bg-green80 grey10 {...modifiers}>
+              <Text bg-green80 {...modifiers}>
                 text{fontKey}
                 {weights[index - 1]}
               </Text>
-              <Text marginT-6 text80 grey30>
+              <Text marginT-6 text80 color={Colors.grey30}>
                 fontSize: {fontPreset.fontSize}
               </Text>
             </View>
@@ -185,14 +185,14 @@ class Tab2 extends Component {
     return (
       <ScrollView>
         <View paddingH-20>
-          <Text marginT-30 text60BO grey10 center>
+          <Text marginT-30 text60BO center>
             Typography Usage Example:
           </Text>
           <View marginV-20 marginH-70 bg-grey60 br20>
-            <Text marginV-10 center grey10>
+            <Text marginV-10 center>
               {'<Text text40M>example</Text>'}
             </Text>
-            <Text marginB-10 center grey10 text40M>
+            <Text marginB-10 center text40M>
               example
             </Text>
           </View>

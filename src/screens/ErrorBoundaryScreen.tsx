@@ -18,12 +18,18 @@ const errorImg = require('../assets/Error.png');
 UIComponent.defaultProps = {};
 //@ts-ignore
 UIComponent.defaultProps.renderError = (
-  <View bg-white flex centerH paddingH-20>
-    <Text center text50 grey30 marginT-100>
+  <View absF bg-white flex centerH paddingH-20>
+    <Text center text50 color={Colors.grey30} marginT-100>
       Oops... Looks Like Something Went Wrong!
     </Text>
-    <Image marginT-50 source={errorImg} resizeMode={'center'} width={300} height={300} />
-    <Text marginT-50 text60M grey20>
+    <Image
+      marginT-50
+      source={errorImg}
+      resizeMode={'center'}
+      width={300}
+      height={300}
+    />
+    <Text marginT-50 text60M color={Colors.grey20}>
       Please refresh the app and try again
     </Text>
   </View>
@@ -45,7 +51,6 @@ class ErrorComp extends Component {
 
     return (
       <Button
-        backgroundColor={Colors.green30}
         labelStyle={styles.button}
         label={'Trigger Error'}
         onPress={this.onPress}
@@ -68,18 +73,18 @@ class ErrorBoundaryScreen extends PureComponent {
           <View bg-grey30 width={8} height={8} br100 />
         </View>
         <View flex>
-          <Text text50 center grey30>
+          <Text text50 center>
             Error boundary example
           </Text>
-          <Text text60M marginT-20 grey30 center>
+          <Text text60M marginT-20 color={Colors.grey30} center>
             Press on the button to see your fallback UI
           </Text>
         </View>
         <View flex-4>
-          <Image height={200} source={purchaseImg}/>
+          <Image height={200} width={200} source={purchaseImg} />
         </View>
         <View flex-2>
-          <ErrorComp/>
+          <ErrorComp />
         </View>
       </View>
     );
@@ -90,6 +95,6 @@ export default ErrorBoundaryScreen;
 
 const styles = StyleSheet.create({
   button: {
-    ...Typography.text60
-  }
+    ...Typography.text60,
+  },
 });

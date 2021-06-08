@@ -9,9 +9,11 @@ import {
   TouchableOpacity,
 } from 'react-native-ui-lib';
 import {registerScreens} from '../screens';
+import {setAppTheme} from '../configurations';
 import {push, TopBar} from 'rnn-copilot';
 
 registerScreens();
+setAppTheme();
 
 const renderButton = (props: any, label: string) => {
   const topBar = new TopBar()
@@ -29,7 +31,7 @@ const renderButton = (props: any, label: string) => {
       onPress={() =>
         push(`${label}Screen`, props.componentId).withTopBar(topBar).go()
       }>
-      <Text marginV-10 marginL-16 white text60>
+      <Text marginV-10 marginL-16 color={Colors.white} text60>
         {label}
       </Text>
       <Image
@@ -45,7 +47,7 @@ const renderButton = (props: any, label: string) => {
 const MainScreen = (props: any) => {
   return (
     <View flex centerV style={styles.container}>
-      <Text center text30BL dark10 marginT-50>
+      <Text center text30BL marginT-50>
         Main Screen
       </Text>
       <View flex centerV>

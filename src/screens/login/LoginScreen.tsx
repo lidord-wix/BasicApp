@@ -66,12 +66,12 @@ class LoginScreen extends PureComponent {
           style={styles.background}
         />
         <View flex-2 centerV>
-          <Text white text40L>
+          <Text text40L color={Colors.white}>
             BasicApp
           </Text>
         </View>
         <View flex centerV>
-          <Text white text20BL>
+          <Text text20BL color={Colors.white}>
             Welcome!
           </Text>
         </View>
@@ -108,8 +108,8 @@ class LoginScreen extends PureComponent {
           <View centerV flex>
             <Button
               marginH-40
-              bg-white
               green20
+              backgroundColor={Colors.white}
               text60
               label={'Login'}
               onPress={this.login}
