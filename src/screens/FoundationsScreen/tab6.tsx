@@ -64,9 +64,4 @@ const styles = StyleSheet.create({
     top: 5,
     left: 5,
   },
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
 });

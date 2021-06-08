@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import {View, Text, Spacings, Colors} from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -49,11 +49,3 @@ class Tab4 extends Component {
 }
 
 export default Tab4;
-
-const styles = StyleSheet.create({
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
-});

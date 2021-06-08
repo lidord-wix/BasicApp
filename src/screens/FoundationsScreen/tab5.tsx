@@ -83,9 +83,4 @@ const styles = StyleSheet.create({
     ...Shadows.sh20.bottom,
   },
   cube: {width: Spacings.s8, height: Spacings.s8, ...Shadows.sh30.bottom},
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
 });

@@ -253,11 +253,6 @@ class Tab2 extends Component {
 export default Tab2;
 
 const styles = StyleSheet.create({
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
   header: {
     ...Shadows.sh20.bottom,
   },

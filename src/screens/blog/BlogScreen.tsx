@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
-import {StyleSheet, FlatList, ScrollView} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import {
   View,
   Text,
@@ -89,9 +89,9 @@ class BlogScreen extends PureComponent {
   render() {
     const {posts} = this.props;
     return (
-      <ScrollView>
+      <View>
         <Text center marginV-40 text30>
-          Posts list:
+          Posts list
         </Text>
         <FlatList
           data={posts}
@@ -99,7 +99,7 @@ class BlogScreen extends PureComponent {
           renderItem={this.renderItem}
           ItemSeparatorComponent={() => <View style={styles.border} />}
         />
-      </ScrollView>
+      </View>
     );
   }
 }

@@ -44,7 +44,7 @@ class Tab3 extends Component {
   renderColors() {
     return (
       <View>
-        <View style={styles.palette}>
+        <View center style={styles.palette}>
           {_.map(Colors, (value, key) => {
             if (!_.isFunction(value)) {
               return (
@@ -76,7 +76,7 @@ class Tab3 extends Component {
                       key={key}
                       marginB-20
                       style={[styles.colorBlock, {backgroundColor: value}]}>
-                      <Text style={styles.colorBlockLabel}>
+                      <Text center style={styles.colorBlockLabel}>
                         {key}: {value}
                       </Text>
                     </View>
@@ -124,33 +124,30 @@ class Tab3 extends Component {
 export default Tab3;
 
 const styles = StyleSheet.create({
-  container: {},
   palette: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     padding: 10,
   },
   paletteColor: {
-    width: 38,
-    height: 38,
+    width: 42,
+    height: 42,
     borderRadius: BorderRadiuses.br20,
-    margin: 5,
+    margin: 4,
+    borderWidth: 1,
+    borderColor: Colors.grey50,
   },
   colorBlock: {
     width: 140,
     height: 140,
     marginRight: 10,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    borderRadius: 999
   },
   colorBlockLabel: {
     backgroundColor: Colors.white,
     opacity: 0.5,
     ...Typography.text80,
-    fontWeight: '500',
-  },
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
+    fontWeight: '500'
   },
 });

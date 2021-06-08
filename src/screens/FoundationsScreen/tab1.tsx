@@ -57,9 +57,4 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
   },
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
 });

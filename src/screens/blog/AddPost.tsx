@@ -138,13 +138,4 @@ const styles = StyleSheet.create({
   title: {
     width: '50%',
   },
-  crown: {
-    position: 'absolute',
-    width: '100%',
-    height: 16,
-  },
-  bottomCrown: {
-    width: '100%',
-    height: 16,
-  },
 });
