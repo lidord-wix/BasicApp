@@ -34,10 +34,12 @@ class GalleryScreen extends PureComponent {
         }}
         style={[
           styles.image,
-          {margin: type === GalleryType.GRID ? Spacings.s2 : Spacings.s1},
+          {
+            width: size,
+            height: size,
+            margin: type === GalleryType.GRID ? Spacings.s2 : Spacings.s1,
+          },
         ]}
-        width={size}
-        height={size}
       />
     );
   };
