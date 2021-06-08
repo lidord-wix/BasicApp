@@ -7,44 +7,66 @@ import {
   Colors,
   BorderRadiuses,
   Spacings,
+  SegmentedControl
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
 class GalleryScreen extends PureComponent {
-  state = {};
+  state = {grid: true};
 
-  renderImage = () => {
-    const randomImageNumber = Math.floor(Math.random() * 500 + 1);
+  getRandomImageNumber = () => Math.floor(Math.random() * 500 + 1);
+
+  renderImage = (size: number) => {
+    const {grid} = this.state;
+    const imageNumber = this.getRandomImageNumber();
     return (
       <Image
-        key={randomImageNumber}
+        key={imageNumber}
         source={{
-          uri: `https://picsum.photos/200/200/?image=${randomImageNumber}`,
+          uri: `https://picsum.photos/200/200/?image=${imageNumber}`,
         }}
-        style={styles.image}
+        style={[styles.image, {margin: grid ? Spacings.s2 : Spacings.s1}]}
+        width={size}
+        height={size}
       />
     );
   };
 
-  renderRow = () => {
+  renderRow = (index: number, numOfImages: number, imageSize: number) => {
     return (
-      <View row center>
-        {_.times(3, this.renderImage)}
+      <View row center key={index}>
+        {_.times(numOfImages, () => this.renderImage(imageSize))}
       </View>
     );
   };
 
-  renderGallery = () => {
-    return <View>{_.times(10, this.renderRow)}</View>;
+  renderCustomView = () => {
+    return (<View centerH>
+      {this.renderImage(350)}
+      {_.times(30, index => this.renderRow(index, 6, 50))}
+    </View>);
+  }
+
+  renderGridView = () => {
+    return <View>{_.times(15, index => this.renderRow(index, 3, 100))}</View>;
   };
+
+  renderGallery = () => {
+    return this.state.grid ? this.renderGridView() : this.renderCustomView();
+  };
+
+  updateView = (index: number) => {
+    this.setState({grid: !index})
+  }
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView >
         <Text center text30 margin-30>
           Gallery Screen
         </Text>
-        <View flex-wrap>{this.renderGallery()}</View>
+        <SegmentedControl segments={[{label: 'Grid'}, {label: 'Custom'}]} onChangeIndex={index => this.updateView(index)}/>
+        <View marginT-20 flex-wrap>{this.renderGallery()}</View>
       </ScrollView>
     );
   }
@@ -54,10 +76,7 @@ export default GalleryScreen;
 
 const styles = StyleSheet.create({
   image: {
-    width: 110,
-    height: 110,
     borderRadius: BorderRadiuses.br10,
-    margin: Spacings.s2,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.dark70,
   },
