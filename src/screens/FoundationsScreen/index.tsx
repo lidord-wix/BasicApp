@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import {
   View,
@@ -5,7 +6,7 @@ import {
   TabController,
   TabControllerItemProps,
 } from 'react-native-ui-lib';
-import _ from 'lodash';
+import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import Tab1 from './tab1';
 import Tab2 from './tab2';
 import Tab3 from './tab3';
@@ -90,7 +91,7 @@ class FoundationsScreen extends PureComponent<{}, State> {
   }
 }
 
-export default FoundationsScreen;
+export default gestureHandlerRootHOC(FoundationsScreen);
 
 const styles = StyleSheet.create({
   indicator: {
