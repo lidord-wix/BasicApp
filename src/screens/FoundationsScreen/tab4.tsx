@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {ScrollView} from 'react-native';
-import {View, Text, Spacings, Colors} from 'react-native-ui-lib';
+import {ScrollView, StyleSheet} from 'react-native';
+import {View, Text, Spacings, Colors, Card} from 'react-native-ui-lib';
 import _ from 'lodash';
 
 class Tab4 extends Component {
@@ -12,7 +12,7 @@ class Tab4 extends Component {
           <Text marginT-30 text60BO center>
             Spacings Usage Example:
           </Text>
-          <View center marginV-20 marginH-40 bg-grey60 br20>
+          <Card center marginV-20 marginH-40 containerStyle={styles.card}>
             <Text marginV-10 center>
               {'{width: Spacings.s8, height: Spacings.s8}'}
             </Text>
@@ -22,7 +22,7 @@ class Tab4 extends Component {
               width={Spacings.s8}
               height={Spacings.s8}
             />
-          </View>
+          </Card>
           <View>
             {_.map(Spacings, (value, key) => {
               if (!_.isNumber(value)) {
@@ -49,3 +49,9 @@ class Tab4 extends Component {
 }
 
 export default Tab4;
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: Colors.grey60,
+  },
+});

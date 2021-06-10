@@ -9,6 +9,7 @@ import {
   Typography,
   Colors,
   Shadows,
+  Card,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -29,7 +30,7 @@ class Tab2 extends Component {
 
   getHeaderElement(index: number) {
     return (
-      <View marginB-10 bg-green60 row spread style={styles.header}>
+      <View marginB-10 bg-green60 row spread style={Shadows.sh20.bottom}>
         <Text marginV-10 marginL-16 text60>
           {this.getTitle(index)}
         </Text>
@@ -188,14 +189,14 @@ class Tab2 extends Component {
           <Text marginT-30 text60BO center>
             Typography Usage Example:
           </Text>
-          <View marginV-20 marginH-70 bg-grey60 br20>
+          <Card marginV-20 marginH-70 containerStyle={styles.card}>
             <Text marginV-10 center>
               {'<Text text40M>example</Text>'}
             </Text>
             <Text marginB-10 center text40M>
               example
             </Text>
-          </View>
+          </Card>
           <ExpandableSection
             expanded={expanded1}
             sectionHeader={this.getHeaderElement(1)}
@@ -253,11 +254,11 @@ class Tab2 extends Component {
 export default Tab2;
 
 const styles = StyleSheet.create({
-  header: {
-    ...Shadows.sh20.bottom,
-  },
   separator: {
     borderBottomWidth: 1,
     borderColor: Colors.grey50,
+  },
+  card: {
+    backgroundColor: Colors.grey60,
   },
 });

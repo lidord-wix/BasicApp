@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   View,
   Text,
   Colors,
   Assets,
+  Button,
   Image,
   TouchableOpacity,
+  GradientSlider,
+  Typography,
+  Card,
 } from 'react-native-ui-lib';
 import {registerScreens} from '../screens';
 import {setAppTheme} from '../configurations';
@@ -21,13 +25,12 @@ const renderButton = (props: any, label: string) => {
     .withOptions({backButton: {title: 'Main Screen'}});
   return (
     <TouchableOpacity
-      marginT-20
+      marginB-20
       marginH-100
       br30
-      bg-green30
       row
       spread
-      style={styles.button}
+      style={[styles.button, {backgroundColor: props.color}]}
       onPress={() =>
         push(`${label}Screen`, props.componentId).withTopBar(topBar).go()
       }>
@@ -45,20 +48,45 @@ const renderButton = (props: any, label: string) => {
 };
 
 const MainScreen = (props: any) => {
+  const [color, setColor] = useState(Colors.green30);
+
+  const changeColor = (value: any) => {
+    setColor(value);
+  };
+
+  const resetColor = () => {
+    setColor(Colors.green30);
+  };
+
   return (
     <View flex centerV style={styles.container}>
-      <View flex center>
-        <Text text30BL>
-          Main Screen
+      <View center flex>
+        <Text text30BL>Main Screen</Text>
+      </View>
+      <View flex-4 centerV>
+        {renderButton({...props, color}, 'Login')}
+        {renderButton({...props, color}, 'Foundations')}
+        {renderButton({...props, color}, 'Blog')}
+        {renderButton({...props, color}, 'Gallery')}
+        {renderButton({...props, color}, 'ErrorBoundary')}
+      </View>
+      <Card centerV flex-2 paddingH-20 marginH-20 marginB-30>
+        <Text center text60 marginB-10>
+          Pick Buttons Color
         </Text>
-      </View>
-      <View flex-2>
-        {renderButton(props, 'Login')}
-        {renderButton(props, 'Foundations')}
-        {renderButton(props, 'Blog')}
-        {renderButton(props, 'Gallery')}
-        {renderButton(props, 'ErrorBoundary')}
-      </View>
+        <GradientSlider
+          color={color}
+          type={'hue'}
+          onValueChange={(value) => changeColor(value)}
+        />
+        <View marginT-10 center>
+          <Button
+            label={'Reset Color'}
+            onPress={resetColor}
+            labelStyle={Typography.text60}
+          />
+        </View>
+      </Card>
     </View>
   );
 };
@@ -69,13 +97,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.grey80,
   },
-  background: {
-    position: 'absolute',
-    width: '100%',
-    height: '150%',
-  },
   button: {
     borderWidth: 2,
-    borderColor: Colors.green20,
+    borderColor: Colors.grey50,
   },
 });

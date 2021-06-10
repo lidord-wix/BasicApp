@@ -1,5 +1,4 @@
 import React, {PureComponent, Component} from 'react';
-import {StyleSheet} from 'react-native';
 import {
   View,
   Text,
@@ -50,7 +49,7 @@ class ErrorComp extends Component {
 
     return (
       <Button
-        labelStyle={styles.button}
+        labelStyle={Typography.text60}
         label={'Trigger Error'}
         onPress={this.onPress}
       />
@@ -80,7 +79,12 @@ class ErrorBoundaryScreen extends PureComponent {
           </Text>
         </View>
         <View center flex-4>
-          <Image height={300} width={400} resizeMode={'stretch'} source={playImg} />
+          <Image
+            height={300}
+            width={400}
+            resizeMode={'stretch'}
+            source={playImg}
+          />
         </View>
         <View flex-2>
           <ErrorComp />
@@ -91,9 +95,3 @@ class ErrorBoundaryScreen extends PureComponent {
 }
 
 export default ErrorBoundaryScreen;
-
-const styles = StyleSheet.create({
-  button: {
-    ...Typography.text60,
-  },
-});

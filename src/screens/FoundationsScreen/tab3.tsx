@@ -7,6 +7,7 @@ import {
   Colors,
   Typography,
   Toast,
+  Card,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -106,14 +107,14 @@ class Tab3 extends Component {
           <Text marginT-30 text60BO center>
             Colors Usage Example:
           </Text>
-          <View marginV-20 marginH-84 bg-grey60 br20>
+          <Card marginV-20 marginH-84 containerStyle={styles.card}>
             <Text marginV-10 center>
               {'<Text green30>example</Text>'}
             </Text>
             <Text marginB-10 center text40M color={Colors.green30}>
               example
             </Text>
-          </View>
+          </Card>
           {this.renderColors()}
         </ScrollView>
       </View>
@@ -142,12 +143,15 @@ const styles = StyleSheet.create({
     height: 140,
     marginRight: 10,
     justifyContent: 'center',
-    borderRadius: 999
+    borderRadius: 999,
   },
   colorBlockLabel: {
     backgroundColor: Colors.white,
     opacity: 0.5,
     ...Typography.text80,
-    fontWeight: '500'
+    fontWeight: '500',
+  },
+  card: {
+    backgroundColor: Colors.grey60,
   },
 });

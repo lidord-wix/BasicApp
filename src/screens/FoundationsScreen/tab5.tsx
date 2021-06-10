@@ -7,6 +7,7 @@ import {
   Shadows,
   BorderRadiuses,
   Spacings,
+  Card,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -42,18 +43,12 @@ class Tab5 extends Component {
         <Text marginT-30 text60BO center>
           Shadows Usage Example:
         </Text>
-        <View
-          center
-          marginV-20
-          marginH-84
-          bg-white
-          br20
-          style={styles.exampleBox}>
+        <Card center marginV-20 marginH-84 containerStyle={styles.card}>
           <Text marginV-10 center>
             {'{...Shadows.sh30.bottom}'}
           </Text>
           <View bg-white marginB-10 style={styles.cube} />
-        </View>
+        </Card>
         <View style={styles.container}>
           <View>{this.renderShadows(VALID_SHADOWS, true)}</View>
           <View>{this.renderShadows(VALID_SHADOWS, false)}</View>
@@ -79,8 +74,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     justifyContent: 'center',
   },
-  exampleBox: {
-    ...Shadows.sh20.bottom,
-  },
   cube: {width: Spacings.s8, height: Spacings.s8, ...Shadows.sh30.bottom},
+  card: {
+    backgroundColor: Colors.white,
+  },
 });

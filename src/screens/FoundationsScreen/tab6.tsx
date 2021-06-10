@@ -6,6 +6,7 @@ import {
   BorderRadiuses,
   Spacings,
   Colors,
+  Card,
 } from 'react-native-ui-lib';
 import _ from 'lodash';
 
@@ -16,7 +17,7 @@ class Tab6 extends Component {
         <Text marginT-30 text60BO center>
           Border Radius Usage Example:
         </Text>
-        <View center marginV-20 bg-grey60 br20 width={220}>
+        <Card center marginV-20 marginH-84 containerStyle={styles.card}>
           <Text marginV-10 center>
             {'<View br30 bg-green50/>'}
           </Text>
@@ -27,7 +28,7 @@ class Tab6 extends Component {
             width={Spacings.s8}
             height={Spacings.s8}
           />
-        </View>
+        </Card>
         <View>
           {_.map(BorderRadiuses, (value, key) => {
             return (
@@ -63,5 +64,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 5,
     left: 5,
+  },
+  card: {
+    backgroundColor: Colors.grey60,
+    width: 220,
   },
 });
