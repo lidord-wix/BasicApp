@@ -8,6 +8,7 @@ import {
   Button,
   Image,
 } from 'react-native-ui-lib';
+import SplashScreen from 'react-native-splash-screen';
 import {push, TopBar, StaticOptions} from 'rnn-copilot';
 import PropTypes from 'prop-types';
 import {usersStore} from './users.store';
@@ -32,6 +33,7 @@ class LoginScreen extends PureComponent {
   }
 
   componentDidMount() {
+    SplashScreen.hide();
     usersActions.fetchUsers();
   }
 

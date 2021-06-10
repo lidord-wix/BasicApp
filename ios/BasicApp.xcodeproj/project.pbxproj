@@ -194,7 +194,6 @@
 				E8E17EA1F70DEA225996B74E /* Pods-BasicApp-tvOSTests.debug.xcconfig */,
 				1C0CC12F89A8CA8538A48D85 /* Pods-BasicApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
